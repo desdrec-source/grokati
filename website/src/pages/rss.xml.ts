@@ -16,7 +16,7 @@ export async function GET(context: APIContext) {
       title: article.data.title,
       description: article.data.description,
       pubDate: article.data.pubDate,
-      link: `/articles/${article.slug}`,
+      link: `/articles/${article.id}`,
       // Include source for transparency
       customData: `<source>${article.data.source}</source>`,
     })),

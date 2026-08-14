@@ -24,7 +24,7 @@ const categoryLabels: Record<string, string> = {
 ---
 
 <article class="article-card">
-  <a href={`/articles/${article.slug}`}>
+  <a href={`/articles/${article.id}`}>
     <div class="card-meta-row">
       <time class="card-date" datetime={pubDate.toISOString()}>{formattedDate}</time>
       {category && (

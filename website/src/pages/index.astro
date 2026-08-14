@@ -52,7 +52,7 @@ const featuredDate = featured
   {featured && (
     <section class="featured-section">
       <p class="featured-label">Featured</p>
-      <a class="featured-card" href={`/articles/${featured.slug}`}>
+      <a class="featured-card" href={`/articles/${featured.id}`}>
         <div class="featured-meta">
           <time datetime={featured.data.pubDate.toISOString()}>{featuredDate}</time>
           <span class="featured-cat">{featuredCategory}</span>
