@@ -2,11 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const products = [
-  { href: '/models', label: 'Models', blurb: 'The Grok model line — including Grok 4.5 and Grok 4.6 — focused on reasoning, coding, and agentic work.' },
-  { href: '/imagine', label: 'Imagine', blurb: 'Image and video generation and editing tools inside Grok, including Imagine Image 2.0 and Video updates.' },
-  { href: '/bot', label: 'Grok Bot', blurb: 'AI teammates that can use tools, carry out work, and return finished results — beyond chat-only interaction.' },
-  { href: '/build', label: 'Grok Build', blurb: 'xAI harness for coding and long-running agentic workflows, closely tied to Grok 4.6 evaluation and use.' },
-  { href: '/voice', label: 'Voice', blurb: 'Spoken interaction with Grok, including multi-platform voice support, new voices, and connectors in voice mode.' },
+  { href: '/models', key: 'models', label: 'Models', blurb: 'The Grok model line — including Grok 4.5 and Grok 4.6 — focused on reasoning, coding, and agentic work.' },
+  { href: '/imagine', key: 'imagine', label: 'Imagine', blurb: 'Image and video generation and editing tools inside Grok, including Imagine Image 2.0 and Video updates.' },
+  { href: '/bot', key: 'bot', label: 'Grok Bot', blurb: 'AI teammates that can use tools, carry out work, and return finished results — beyond chat-only interaction.' },
+  { href: '/build', key: 'build', label: 'Grok Build', blurb: 'xAI harness for coding and long-running agentic workflows, closely tied to Grok 4.6 evaluation and use.' },
+  { href: '/voice', key: 'voice', label: 'Voice', blurb: 'Spoken interaction with Grok, including multi-platform voice support, new voices, and connectors in voice mode.' },
 ];
 ---
 <BaseLayout title="Products" description="Overview of Grok and xAI product surfaces covered by Grokati.">
@@ -15,7 +15,7 @@ const products = [
     <p class="page-subtitle muted">Short reference pages for the main Grok / xAI surfaces we cover.</p>
     <div class="products-grid">
       {products.map((p) => (
-        <a class="product-card" href={p.href}>
+        <a class={`product-card product-${p.key}`} href={p.href}>
           <h2 class="product-card-title">{p.label}</h2>
           <p class="product-card-blurb">{p.blurb}</p>
           <span class="product-card-link">Learn more →</span>
