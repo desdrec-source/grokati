@@ -26,7 +26,7 @@ XAI_MODEL: str = os.getenv("XAI_MODEL", "grok-4-latest")
 
 WATCH_ACCOUNTS: list[str] = [
     a.strip().lstrip("@")
-    for a in os.getenv("WATCH_ACCOUNTS", "grok,xai").split(",")
+    for a in os.getenv("WATCH_ACCOUNTS", "grok,xai,cursor_ai").split(",")
     if a.strip()
 ]
 WATCH_ELON: bool = os.getenv("WATCH_ELON", "true").lower() in ("1", "true", "yes")
@@ -34,7 +34,7 @@ HIGH_SIGNAL_KEYWORDS: list[str] = [
     k.strip()
     for k in os.getenv(
         "HIGH_SIGNAL_KEYWORDS",
-        "Grok 4,Grok-4,Grok 4.,model release,API update,announcement,Grok Bot,Grok Build,xAI",
+        "Grok 4,Grok-4,Grok 4.,Grok,model release,API update,announcement,Grok Bot,Grok Build,Grok API,xAI",
     ).split(",")
     if k.strip()
 ]
