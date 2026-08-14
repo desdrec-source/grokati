@@ -10,14 +10,17 @@ const articles = allArticles.sort(
 ---
 
 <BaseLayout title="Grokati" description="High-signal, accurate news about Grok and xAI. Accuracy over volume.">
-  <section>
-    <h1 class="page-title">Latest Grok &amp; xAI Updates</h1>
+  <section class="home-hero">
+    <p class="home-kicker">Grok &amp; xAI news</p>
+    <h1 class="page-title">Latest updates</h1>
     <p class="page-subtitle muted">
       Focused coverage of official announcements and high-signal developments.
     </p>
+  </section>
 
+  <section>
     {articles.length === 0 ? (
-      <p class="muted" style="margin-top: 2rem;">No articles yet.</p>
+      <p class="muted" style="margin-top: 1rem;">No articles yet.</p>
     ) : (
       <div class="articles-grid">
         {articles.map((article) => (

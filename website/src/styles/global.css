@@ -423,3 +423,31 @@ strong {
   gap: 0.5rem 1.5rem;
   font-size: 0.82rem;
 }
+
+/* Homepage kicker */
+.home-hero {
+  margin-bottom: 0.25rem;
+}
+
+.home-kicker {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.65rem;
+}
+
+/* Stronger card hover */
+.article-card {
+  border-radius: 14px;
+  box-shadow: 0 0 0 1px transparent;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.article-card:hover {
+  border-color: rgba(56, 189, 248, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
