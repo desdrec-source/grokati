@@ -14,6 +14,46 @@ const formattedDate = pubDate.toLocaleDateString('en-US', {
   month: 'long',
   day: 'numeric',
 });
+
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const imageUrl = image
+  ? image.startsWith('http')
+    ? image
+    : new URL(image, Astro.site).toString()
+  : undefined;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'NewsArticle',
+  headline: title,
+  description,
+  datePublished: pubDate.toISOString(),
+  dateModified: pubDate.toISOString(),
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': pageUrl,
+  },
+  author: {
+    '@type': 'Organization',
+    name: author || 'Grokati',
+    url: Astro.site?.toString() || 'https://www.grokati.com',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Grokati',
+    url: Astro.site?.toString() || 'https://www.grokati.com',
+  },
+  isBasedOn: sourceUrl,
+  ...(imageUrl
+    ? {
+        image: {
+          '@type': 'ImageObject',
+          url: imageUrl,
+          description: imageAlt || title,
+        },
+      }
+    : {}),
+};
 ---
 
 <BaseLayout
@@ -23,6 +63,8 @@ const formattedDate = pubDate.toLocaleDateString('en-US', {
   image={image}
   imageAlt={imageAlt || title}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
   <article>
     <header class="article-header">
       <h1>{title}</h1>
