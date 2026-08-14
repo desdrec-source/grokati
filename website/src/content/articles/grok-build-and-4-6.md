@@ -6,6 +6,7 @@ source: "@elonmusk on X"
 sourceUrl: "https://x.com/elonmusk/status/2088100521261359218"
 author: "Grokati"
 draft: false
+category: build
 ---
 
 On 14 August 2026, **Elon Musk** posted that **Grok 4.6** performs best with the **Grok Build** harness, and that the experience is significantly worse without it.

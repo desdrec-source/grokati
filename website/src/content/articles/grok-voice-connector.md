@@ -6,6 +6,7 @@ source: "@grok on X"
 sourceUrl: "https://x.com/grok/status/2086910382569066807"
 author: "Grokati"
 draft: false
+category: voice
 ---
 
 In early August 2026, **@grok** confirmed that the **Voice connector** was available across Grok's main client platforms, and that connectors could be used while in voice mode.

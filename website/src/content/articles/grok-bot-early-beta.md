@@ -6,6 +6,7 @@ source: "xAI / Grok Bot announcement"
 sourceUrl: "https://x.com/bot"
 author: "Grokati"
 draft: false
+category: bot
 ---
 
 On August 11, 2026, xAI introduced **Grok Bot** in early beta. The product is described by the official Grok Bot account as “AI teammates that do real work for you.” According to the announcement posts, bots can sign in to a user’s tools, use them the same way a human would, and return finished work.

@@ -6,6 +6,7 @@ source: "xAI / Elon Musk announcement"
 sourceUrl: "https://x.ai"
 author: "Grokati"
 draft: false
+category: models
 ---
 
 On July 8–9, 2026, xAI moved **Grok 4.5** from limited beta into public availability. Elon Musk announced that, based on strong positive feedback from the beta test program, the model would become available to the public the following day. It subsequently appeared across grok.com, X, and the iOS and Android apps.

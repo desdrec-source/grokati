@@ -6,6 +6,7 @@ source: "@grok on X"
 sourceUrl: "https://x.com/grok/status/2087225707504214130"
 author: "Grokati"
 draft: false
+category: bot
 ---
 
 On 11 August 2026, **@grok** announced that **Grok Bot** had moved into **public beta**.

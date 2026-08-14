@@ -6,6 +6,7 @@ source: "@grok on X"
 sourceUrl: "https://x.com/grok/status/2087959772909949375"
 author: "Grokati"
 draft: false
+category: models
 ---
 
 On August 13, 2026, the official @grok account announced a reset of limits to support user activity during the Grok 4.6 launch.

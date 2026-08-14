@@ -6,6 +6,7 @@ source: "@grok on X"
 sourceUrl: "https://x.com/grok/status/2085083115488260175"
 author: "Grokati"
 draft: false
+category: voice
 ---
 
 On August 5, 2026, the official @grok account on X stated that Connectors are now available in Voice Mode.

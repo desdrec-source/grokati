@@ -6,6 +6,7 @@ source: "xAI official announcement"
 sourceUrl: "https://x.ai/news/grok-4-6"
 author: "Grokati"
 draft: false
+category: models
 ---
 
 xAI released **Grok 4.6** on August 12, 2026. According to the official announcement on [x.ai/news/grok-4-6](https://x.ai/news/grok-4-6), the model builds directly on Grok 4.5 with a particular focus on long-running agents and more ambitious interactive and visual work.

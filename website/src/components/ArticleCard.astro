@@ -6,18 +6,31 @@ interface Props {
 }
 
 const { article } = Astro.props;
-const { title, description, pubDate, source } = article.data;
+const { title, description, pubDate, source, category } = article.data;
 
 const formattedDate = pubDate.toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'short',
   day: 'numeric',
 });
+
+const categoryLabels: Record<string, string> = {
+  models: 'Models',
+  imagine: 'Imagine',
+  bot: 'Grok Bot',
+  build: 'Grok Build',
+  voice: 'Voice',
+};
 ---
 
 <article class="article-card">
   <a href={`/articles/${article.slug}`}>
-    <time class="card-date" datetime={pubDate.toISOString()}>{formattedDate}</time>
+    <div class="card-meta-row">
+      <time class="card-date" datetime={pubDate.toISOString()}>{formattedDate}</time>
+      {category && (
+        <span class={`card-category cat-${category}`}>{categoryLabels[category] || category}</span>
+      )}
+    </div>
     <h2 class="card-title">{title}</h2>
     <p class="card-desc">{description}</p>
     <p class="card-source">Source: {source}</p>

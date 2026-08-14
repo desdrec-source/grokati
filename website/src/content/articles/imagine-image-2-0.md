@@ -6,6 +6,7 @@ source: "@grok on X"
 sourceUrl: "https://x.com/grok/status/2085931542262526102"
 author: "Grokati"
 draft: false
+category: imagine
 ---
 
 On 8 August 2026, the official **@grok** account announced **Imagine Image 2.0**, the next version of xAI's image generation and editing model.

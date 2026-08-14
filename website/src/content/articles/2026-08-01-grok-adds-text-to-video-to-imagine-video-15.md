@@ -6,6 +6,7 @@ source: "@grok on X"
 sourceUrl: "https://x.com/grok/status/2083353607370416632"
 author: "Grokati"
 draft: false
+category: imagine
 ---
 
 On August 1, 2026, the official @grok account on X posted an update stating that Imagine Video 1.5 now includes text-to-video support along with image and voice references and native 1080p output.

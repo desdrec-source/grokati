@@ -6,6 +6,7 @@ source: "@grok on X"
 sourceUrl: "https://x.com/grok/status/2085842208414986750"
 author: "Grokati"
 draft: false
+category: voice
 ---
 
 On August 7, 2026, the official @grok account on X announced the release of 21 brand-new voices for Grok, now available on iOS, Android, and web.
