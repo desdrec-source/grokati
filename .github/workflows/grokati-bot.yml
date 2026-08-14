@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   run-bot:
@@ -41,13 +42,27 @@ jobs:
           LOG_LEVEL: INFO
         run: python main.py
 
-      - name: Commit and push new content
-        uses: stefanzweifel/git-auto-commit-action@v5
+      - name: Open PR with new content (if any)
+        uses: peter-evans/create-pull-request@v7
         with:
-          commit_message: "Bot: publish new high-signal Grok/xAI articles"
-          file_pattern: |
-            website/src/content/articles/**
-            website/public/images/articles/**
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Bot: new high-signal Grok/xAI articles"
+          title: "Bot: new high-signal Grok/xAI articles"
+          body: |
+            Automated draft from the Grokati bot.
+
+            **Review before merge:**
+            - Accuracy and attribution look correct
+            - Categories are sensible
+            - Images (if any) are real source media
+
+            Processed-post memory is updated in `bot/state/processed.json`.
+          branch: bot/content-updates
+          delete-branch: true
+          add-paths: |
+            website/src/content/articles
+            website/public/images/articles
             bot/state/processed.json
-          commit_user_name: Grokati Bot
-          commit_user_email: bot@grokati.com
+          labels: |
+            bot
+            content
