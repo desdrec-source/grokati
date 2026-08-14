@@ -53,7 +53,9 @@ class XMonitor:
         )
         return data.get("data", {}).get("id")
 
-    def get_user_tweets(self, user_id: str, max_results: int = 15) -> tuple[list[dict], dict[str, dict]]:
+    def get_user_tweets(
+        self, user_id: str, max_results: int = 15
+    ) -> tuple[list[dict], dict[str, dict]]:
         params = {
             "max_results": min(max(5, max_results), 100),
             "tweet.fields": "created_at,public_metrics,referenced_tweets,entities,lang,attachments",
@@ -79,9 +81,11 @@ class XMonitor:
             url = None
             if mtype == "photo":
                 url = m.get("url")
+                if not url:
+                    continue
             elif mtype in ("video", "animated_gif"):
-                url = m.get("preview_image_url")
-            if not url:
+                url = m.get("preview_image_url") or ""
+            else:
                 continue
             out.append(
                 {
@@ -111,7 +115,9 @@ class XMonitor:
                 tweets, media_by_key = self.get_user_tweets(
                     user_id, max_results=POSTS_PER_ACCOUNT
                 )
-                logger.info("  → %d tweets returned by API for @%s", len(tweets), username)
+                logger.info(
+                    "  → %d tweets returned by API for @%s", len(tweets), username
+                )
 
                 for tw in tweets:
                     if is_high_signal(tw, author_username=username):
@@ -123,18 +129,25 @@ class XMonitor:
                                 "created_at": tw.get("created_at"),
                                 "author": username,
                                 "url": f"https://x.com/{username}/status/{tw['id']}",
-                                "media": media,`r`n                                "has_video": any(`r`n                                    (m.get("type") or "").lower() in ("video", "animated_gif")`r`n                                    for m in media`r`n                                ),
+                                "media": media,
+                                "has_video": any(
+                                    (m.get("type") or "").lower()
+                                    in ("video", "animated_gif")
+                                    for m in media
+                                ),
                                 "raw": tw,
                             }
                         )
                     else:
-                        logger.debug("  filtered out: %s…", (tw.get("text") or "")[:60])
+                        logger.debug(
+                            "  filtered out: %s…", (tw.get("text") or "")[:60]
+                        )
 
             except Exception as e:
                 logger.exception("Failed to fetch @%s: %s", username, e)
 
-        seen = set()
-        unique = []
+        seen: set[str] = set()
+        unique: list[dict[str, Any]] = []
         for item in results:
             if item["id"] not in seen:
                 seen.add(item["id"])
