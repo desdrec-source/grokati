@@ -1,6 +1,6 @@
 ---
 title: "Grok 4.6 and the Grok Build Harness"
-description: "Elon Musk highlighted that Grok 4.6 works best with the Grok Build harness, advising evaluation with Build rather than without it."
+description: "Elon Musk said Grok 4.6 works best with the Grok Build harness and advised evaluating the model inside Build."
 pubDate: 2026-08-14
 source: "@elonmusk on X"
 sourceUrl: "https://x.com/elonmusk/status/2088100521261359218"
@@ -8,20 +8,32 @@ author: "Grokati"
 draft: false
 ---
 
-On August 14, 2026, Elon Musk posted that Grok 4.6 works best with the Grok Build harness, and that the experience is significantly worse without it. He advised evaluating the model using Build.
+On 14 August 2026, **Elon Musk** posted that **Grok 4.6** performs best with the **Grok Build** harness, and that the experience is significantly worse without it.
 
-### What was stated
+> Grok 4.6 works best with the Grok Build harness. Evaluate it with Build — without it, the experience is significantly worse.
 
-- Grok 4.6 performs best when used with the Grok Build harness
-- Results are described as significantly weaker if Build is not used
-- Users assessing the model should do so inside the Build environment
+## Why Build is part of the story
 
-### Context
+Two days earlier, on 12 August 2026, xAI published the official **Grok 4.6** launch. That announcement positioned 4.6 as a model focused on long-running agents, multi-step work, coding, and interactive tasks, with availability in **Cursor**, **Grok Build**, the **API**, and selected partners.
 
-Grok Build is xAI environment for working with Grok models on coding and agentic tasks. The official Grok 4.6 launch materials already listed Grok Build as a primary surface for the new model.
+Musk's follow-up post tightens that message: for evaluation and day-to-day use, **model + harness** should be judged together. Build is not an optional extra in that framing; it is the intended environment for serious agentic and coding work with 4.6.
 
-### Attribution
+## What Grok 4.6 is (from the official launch)
 
-This article reports only what was stated in the cited post and the official Grok 4.6 announcement.
+From xAI's own release materials:
 
-Source: https://x.com/elonmusk/status/2088100521261359218
+- Builds on Grok 4.5 with a focus on sustained agentic workflows
+- Aimed at multi-step research, codebase work, and turning ideas into finished artifacts
+- Offered at the same pricing tier as Grok 4.5, with a faster variant at a higher rate
+- Available across Build, Cursor, API, and partner surfaces at launch
+
+Full benchmark tables and technical detail remain on the official xAI news post.
+
+## Limits of this article
+
+Musk's post was short. This piece combines that statement with the already-published official 4.6 launch notes. It does not add independent benchmarks or performance claims beyond those sources.
+
+## Sources
+
+- [@elonmusk on X](https://x.com/elonmusk/status/2088100521261359218), 14 August 2026
+- [Introducing Grok 4.6 | xAI](https://x.ai/news/grok-4-6), 12 August 2026

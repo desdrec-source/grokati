@@ -454,3 +454,33 @@ strong {
     padding: 0.25rem 0.65rem;
   }
 }
+/* Source pull quotes */
+blockquote {
+  margin: 1.5rem 0 1.75rem;
+  padding: 1.15rem 1.35rem;
+  background: linear-gradient(135deg, rgba(14, 22, 36, 0.95), rgba(12, 40, 70, 0.75));
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  font-weight: 500;
+}
+blockquote p { margin: 0; color: var(--text); }
+.article-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0 1.5rem;
+  font-size: 0.95rem;
+}
+.article-body th, .article-body td {
+  text-align: left;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid rgba(56, 189, 248, 0.15);
+}
+.article-body th {
+  background: rgba(56, 189, 248, 0.08);
+  color: var(--text);
+  font-weight: 600;
+}

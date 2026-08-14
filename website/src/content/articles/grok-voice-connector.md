@@ -1,6 +1,6 @@
 ---
 title: "Grok Voice Connector Rolls Out Across Platforms"
-description: "Grok Voice connector became available on iOS, Android, and web, with connectors also enabled in voice mode."
+description: "Grok Voice connector became available on iOS, Android, and web, with connectors also enabled inside voice mode."
 pubDate: 2026-08-10
 source: "@grok on X"
 sourceUrl: "https://x.com/grok/status/2086910382569066807"
@@ -8,20 +8,38 @@ author: "Grokati"
 draft: false
 ---
 
-In early August 2026, the official @grok account announced that the Voice connector was available across major platforms, and that connectors had been enabled inside voice mode.
+In early August 2026, **@grok** confirmed that the **Voice connector** was available across Grok's main client platforms, and that connectors could be used while in voice mode.
 
-### Platform availability
+> Voice connector is available on iOS, Android, and web — with connectors enabled in voice mode.
 
-- Voice connector support was extended to iOS, Android, and web
-- The rollout was framed as available to users without a complex setup process
-- A related update stated that connectors could be used while in voice mode
+## What shipped
 
-### Why it matters
+Official posts in the 5–10 August window stated that:
 
-Voice has been a visible part of the Grok experience. Making connectors available in voice mode is a practical step toward spoken interaction with connected tools.
+- Voice connector support extended to **iOS**, **Android**, and **web**
+- Access was framed as straightforward, without a heavy setup process
+- Connectors could be used **inside voice mode**, not only in typed chat
 
-### Attribution
+That last point matters. Connectors are how Grok reaches external tools and accounts. Putting them in voice mode means spoken sessions can trigger the same kinds of actions users already associate with connected chat.
 
-Details above are taken from official @grok posts. No additional product behaviour beyond what was stated is assumed.
+## How this fits the wider Grok surface
 
-Source: https://x.com/grok/status/2086910382569066807
+Grok's public product set now spans several layers:
+
+| Area | Role |
+|------|------|
+| Core models | Reasoning and generation (e.g. Grok 4.5 / 4.6) |
+| Imagine | Image generation and editing |
+| Voice | Spoken interaction |
+| Connectors | Access to external tools and accounts |
+| Grok Bot / Build | Agent-style and coding workflows |
+
+The Voice connector update is a plumbing improvement: it ties **voice** to **connectors** so the assistant can act, not only talk.
+
+## Limits of this report
+
+This article only reflects what official @grok posts stated. It does not describe internal architecture, rate limits, or which third-party services are supported beyond what those posts said.
+
+## Source
+
+[@grok on X](https://x.com/grok/status/2086910382569066807) and related official posts, early August 2026.
