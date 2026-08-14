@@ -5,7 +5,9 @@ pubDate: 2026-07-28
 source: "@grok on X"
 sourceUrl: "https://x.com/grok/status/2082134072793637196"
 author: "Grokati"
-draft: false
+draft: false
+image: "/images/articles/2026-07-28-grok-adds-one-prompt-app-builder-for-supergrok-heavy-users.jpg"
+imageAlt: "Image from the source post"
 category: "models"
 ---
 
