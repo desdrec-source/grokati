@@ -13,6 +13,8 @@ const articles = defineCollection({
     author: z.string().default('Grokati'),
     draft: z.boolean().default(false),
     category: z.enum(['models', 'imagine', 'bot', 'build', 'voice']).default('models'),
+    image: z.string().optional(),
+    imageAlt: z.string().optional(),
   }),
 });
 
