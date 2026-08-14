@@ -7,8 +7,6 @@ sourceUrl: "https://x.com/grok/status/2086910382569066807"
 author: "Grokati"
 draft: false
 category: voice
-image: "/images/articles/2026-08-10-grok-rolls-out-voice-connector-to-all-platforms.jpg"
-imageAlt: "Image from the source post"
 ---
 
 On August 10, 2026, the official @grok account on X announced that the new Voice connector is now available to all users.
