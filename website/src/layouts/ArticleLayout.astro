@@ -16,7 +16,13 @@ const formattedDate = pubDate.toLocaleDateString('en-US', {
 });
 ---
 
-<BaseLayout title={title} description={description} ogType="article">
+<BaseLayout
+  title={title}
+  description={description}
+  ogType="article"
+  image={image}
+  imageAlt={imageAlt || title}
+>
   <article>
     <header class="article-header">
       <h1>{title}</h1>
@@ -29,7 +35,14 @@ const formattedDate = pubDate.toLocaleDateString('en-US', {
 
     {image && (
       <figure class="article-hero">
-        <img src={image} alt={imageAlt || title} width="1200" height="630" loading="eager" decoding="async" />
+        <img
+          src={image}
+          alt={imageAlt || title}
+          width="1200"
+          height="630"
+          loading="eager"
+          decoding="async"
+        />
       </figure>
     )}
 
