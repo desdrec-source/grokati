@@ -2,9 +2,9 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-// https://astro.build/config
+// Canonical site URL — match the primary host (www) used in production
 export default defineConfig({
-  site: 'https://grokati.com',
+  site: 'https://www.grokati.com',
   trailingSlash: 'never',
   integrations: [sitemap()],
 });

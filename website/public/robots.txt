@@ -3,4 +3,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.grokati.com/sitemap-index.xml
-Sitemap: https://grokati.com/sitemap-index.xml
