@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const articles = allArticles.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout title="Grokati" description="High-signal, accurate news about Grok and xAI. Accuracy over volume.">
+  <section>
+    <h1 class="page-title">Latest Grok &amp; xAI Updates</h1>
+    <p class="page-subtitle muted">
+      Focused coverage of official announcements and high-signal developments.
+    </p>
+
+    {articles.length === 0 ? (
+      <p class="muted" style="margin-top: 2rem;">No articles yet.</p>
+    ) : (
+      <div class="articles-grid">
+        {articles.map((article) => (
+          <ArticleCard article={article} />
+        ))}
+      </div>
+    )}
+  </section>
+</BaseLayout>

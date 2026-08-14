@@ -1,0 +1,46 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  article: CollectionEntry<'articles'>;
+}
+
+const { article } = Astro.props;
+const { title, description, pubDate, source, sourceUrl, author } = article.data;
+
+const formattedDate = pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title={title} description={description} ogType="article">
+  <article>
+    <header class="article-header">
+      <h1>{title}</h1>
+      <div class="article-meta">
+        <time datetime={pubDate.toISOString()}>{formattedDate}</time>
+        <span>·</span>
+        <span>{author}</span>
+      </div>
+    </header>
+
+    <div class="article-source">
+      <strong>Source:</strong> {source}<br />
+      <a href={sourceUrl} target="_blank" rel="noopener noreferrer">{sourceUrl}</a>
+    </div>
+
+    <div class="article-body">
+      <slot />
+    </div>
+
+    <footer class="attribution">
+      <p>
+        This article was generated with AI assistance and is based solely on the cited source material.
+        Grokati prioritizes accuracy and clear attribution. No details are invented.
+      </p>
+    </footer>
+  </article>
+</BaseLayout>

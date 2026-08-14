@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About"
+  description="Grokati is an automated / AI-assisted news project focused exclusively on Grok and xAI updates. Accuracy and signal over volume."
+>
+  <section class="about-content">
+    <h1 class="page-title">About Grokati</h1>
+    <p class="page-subtitle muted">Accuracy first. Signal over volume.</p>
+
+    <p>
+      Grokati is a focused news site dedicated to <strong>Grok</strong> and <strong>xAI</strong>.
+      There is currently no single high-quality outlet that consistently covers official Grok and xAI
+      developments with clear sourcing and minimal noise. This project aims to fill that gap.
+    </p>
+
+    <h2>What this site is</h2>
+    <p>
+      Grokati is an <strong>automated and AI-assisted</strong> project. A Python pipeline monitors
+      official X accounts and high-signal announcements, then uses the Grok API to draft short posts
+      and longer Markdown articles. Every article must attribute its original source. No details are
+      invented.
+    </p>
+
+    <h2>Core principles</h2>
+    <ul>
+      <li><strong>Accuracy over volume</strong> — prefer silence to low-value or speculative content.</li>
+      <li><strong>Clear attribution</strong> — every claim points back to an official or primary source.</li>
+      <li><strong>No hype, no invention</strong> — neutral, precise language. Slight wit only when it aids clarity.</li>
+      <li><strong>File-based and simple</strong> — Markdown content, static Astro site, easy to host and audit.</li>
+    </ul>
+
+    <h2>Independence</h2>
+    <p>
+      Grokati is an independent project. It is not affiliated with, endorsed by, or operated by xAI,
+      X Corp, or Elon Musk. Coverage is limited to publicly available official statements and
+      high-signal primary sources.
+    </p>
+
+    <h2>Contact / feedback</h2>
+    <p>
+      This is an early Phase 1 site. Feedback on accuracy, missing high-signal items, or technical
+      issues is welcome via the project repository or the domain contact channels once they are set up.
+    </p>
+
+    <p class="muted" style="margin-top: 2.5rem;">
+      Domain: <a href="https://grokati.com">grokati.com</a>
+    </p>
+  </section>
+</BaseLayout>
