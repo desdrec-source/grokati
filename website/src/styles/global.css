@@ -683,3 +683,44 @@ blockquote p { margin: 0; color: var(--text); }
   border-color: rgba(74, 222, 128, 0.4);
   border-left-color: #4ade80;
 }
+
+/* Homepage category colours (match Products) */
+.cat-models .category-title { color: #7dd3fc; }
+.cat-models .category-header { border-bottom-color: rgba(56, 189, 248, 0.25); }
+.card-category.cat-models {
+  color: #7dd3fc;
+  border-color: rgba(56, 189, 248, 0.35);
+  background: rgba(56, 189, 248, 0.12);
+}
+
+.cat-imagine .category-title { color: #c4b5fd; }
+.cat-imagine .category-header { border-bottom-color: rgba(167, 139, 250, 0.25); }
+.card-category.cat-imagine {
+  color: #c4b5fd;
+  border-color: rgba(167, 139, 250, 0.35);
+  background: rgba(167, 139, 250, 0.12);
+}
+
+.cat-bot .category-title { color: #5eead4; }
+.cat-bot .category-header { border-bottom-color: rgba(45, 212, 191, 0.25); }
+.card-category.cat-bot {
+  color: #5eead4;
+  border-color: rgba(45, 212, 191, 0.35);
+  background: rgba(45, 212, 191, 0.12);
+}
+
+.cat-build .category-title { color: #fcd34d; }
+.cat-build .category-header { border-bottom-color: rgba(251, 191, 36, 0.25); }
+.card-category.cat-build {
+  color: #fcd34d;
+  border-color: rgba(251, 191, 36, 0.35);
+  background: rgba(251, 191, 36, 0.12);
+}
+
+.cat-voice .category-title { color: #86efac; }
+.cat-voice .category-header { border-bottom-color: rgba(74, 222, 128, 0.25); }
+.card-category.cat-voice {
+  color: #86efac;
+  border-color: rgba(74, 222, 128, 0.35);
+  background: rgba(74, 222, 128, 0.12);
+}

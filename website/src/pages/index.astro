@@ -68,7 +68,7 @@ const featuredDate = featured
     <p class="muted">No articles yet.</p>
   ) : (
     grouped.map((group) => (
-      <section class="category-section">
+      <section class={`category-section cat-${group.key}`}>
         <div class="category-header">
           <h2 class="category-title">{group.label}</h2>
           <span class="category-count">{group.items.length}</span>
