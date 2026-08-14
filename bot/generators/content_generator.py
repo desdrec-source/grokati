@@ -13,7 +13,16 @@ from typing import Any
 
 from openai import OpenAI
 
-from config import XAI_API_KEY, XAI_BASE_URL, XAI_MODEL, ARTICLES_OUT, POSTS_OUT
+from config import (
+    XAI_API_KEY,
+    XAI_BASE_URL,
+    XAI_MODEL,
+    ARTICLES_OUT,
+    POSTS_OUT,
+    IMAGES_OUT,
+    WEBSITE_IMAGES_DIR,
+)
+from utils.media import download_source_image
 from utils.logger import get_logger
 from utils.filters import slugify
 
@@ -165,6 +174,24 @@ Never invent details not supported by the source or well-established public prod
         source_name = f"@{item['author']} on X"
         source_url = item["url"]
 
+        image_lines = ""
+        media_list = item.get("media") or []
+        if media_list:
+            downloaded = download_source_image(media_list, IMAGES_OUT, image_basename)
+            if downloaded:
+                local_path, alt = downloaded
+                public_name = local_path.name
+                safe_alt = alt.replace('"', "'")
+                image_lines = (
+                    f'image: "/images/articles/{public_name}"\n'
+                    f'imageAlt: "{safe_alt}"\n'
+                )
+                if live:
+                    WEBSITE_IMAGES_DIR.mkdir(parents=True, exist_ok=True)
+                    dest = WEBSITE_IMAGES_DIR / public_name
+                    dest.write_bytes(local_path.read_bytes())
+                    logger.info("LIVE: copied image → %s", dest)
+
         frontmatter = f"""---
 title: "{title.replace('"', "'")}"
 description: "{generated['description'].replace('"', "'")}"
@@ -173,7 +200,7 @@ source: "{source_name}"
 sourceUrl: "{source_url}"
 author: "Grokati"
 draft: false
----
+{image_lines}---
 
 """
         body = generated["body_markdown"].strip()

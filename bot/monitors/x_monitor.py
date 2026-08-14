@@ -1,6 +1,7 @@
 """
 X (Twitter) API v2 monitor for high-signal Grok / xAI posts.
 Uses Bearer Token (app-only) for reading.
+Includes attached media URLs when present.
 """
 
 from __future__ import annotations
@@ -52,20 +53,48 @@ class XMonitor:
         )
         return data.get("data", {}).get("id")
 
-    def get_user_tweets(self, user_id: str, max_results: int = 15) -> list[dict]:
+    def get_user_tweets(self, user_id: str, max_results: int = 15) -> tuple[list[dict], dict[str, dict]]:
         params = {
             "max_results": min(max(5, max_results), 100),
-            "tweet.fields": "created_at,public_metrics,referenced_tweets,entities,lang",
-            "exclude": "retweets,replies",  # reduce noise at API level where possible
+            "tweet.fields": "created_at,public_metrics,referenced_tweets,entities,lang,attachments",
+            "expansions": "attachments.media_keys",
+            "media.fields": "url,preview_image_url,type,alt_text,width,height",
+            "exclude": "retweets,replies",
         }
         data = self._get(f"/users/{user_id}/tweets", params=params)
-        return data.get("data") or []
+        tweets = data.get("data") or []
+        media_list = (data.get("includes") or {}).get("media") or []
+        media_by_key = {m["media_key"]: m for m in media_list if "media_key" in m}
+        return tweets, media_by_key
+
+    @staticmethod
+    def _extract_media(tw: dict, media_by_key: dict[str, dict]) -> list[dict[str, Any]]:
+        keys = (tw.get("attachments") or {}).get("media_keys") or []
+        out: list[dict[str, Any]] = []
+        for key in keys:
+            m = media_by_key.get(key)
+            if not m:
+                continue
+            mtype = m.get("type")
+            url = None
+            if mtype == "photo":
+                url = m.get("url")
+            elif mtype in ("video", "animated_gif"):
+                url = m.get("preview_image_url")
+            if not url:
+                continue
+            out.append(
+                {
+                    "type": mtype,
+                    "url": url,
+                    "alt": m.get("alt_text") or "",
+                    "width": m.get("width"),
+                    "height": m.get("height"),
+                }
+            )
+        return out
 
     def fetch_high_signal_posts(self) -> list[dict[str, Any]]:
-        """
-        Collect high-signal posts from watched accounts.
-        Returns a list of dicts with normalized fields + original post.
-        """
         results: list[dict[str, Any]] = []
         accounts = list(WATCH_ACCOUNTS)
         if WATCH_ELON and "elonmusk" not in accounts:
@@ -79,11 +108,14 @@ class XMonitor:
                     logger.warning("Could not resolve user_id for @%s", username)
                     continue
 
-                tweets = self.get_user_tweets(user_id, max_results=POSTS_PER_ACCOUNT)
+                tweets, media_by_key = self.get_user_tweets(
+                    user_id, max_results=POSTS_PER_ACCOUNT
+                )
                 logger.info("  → %d tweets returned by API for @%s", len(tweets), username)
 
                 for tw in tweets:
                     if is_high_signal(tw, author_username=username):
+                        media = self._extract_media(tw, media_by_key)
                         results.append(
                             {
                                 "id": tw["id"],
@@ -91,6 +123,7 @@ class XMonitor:
                                 "created_at": tw.get("created_at"),
                                 "author": username,
                                 "url": f"https://x.com/{username}/status/{tw['id']}",
+                                "media": media,
                                 "raw": tw,
                             }
                         )
@@ -100,7 +133,6 @@ class XMonitor:
             except Exception as e:
                 logger.exception("Failed to fetch @%s: %s", username, e)
 
-        # Deduplicate by post id
         seen = set()
         unique = []
         for item in results:
@@ -108,5 +140,10 @@ class XMonitor:
                 seen.add(item["id"])
                 unique.append(item)
 
-        logger.info("Total high-signal posts after filtering: %d", len(unique))
+        with_media = sum(1 for i in unique if i.get("media"))
+        logger.info(
+            "Total high-signal posts after filtering: %d (%d with media)",
+            len(unique),
+            with_media,
+        )
         return unique
