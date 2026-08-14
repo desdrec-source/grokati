@@ -1,4 +1,4 @@
-/* Grokati — Techflux-inspired dark tech design */
+/* Grokati â€” Techflux-inspired dark tech design */
 
 :root {
   --bg: #030508;
@@ -110,7 +110,7 @@ strong {
   color: #f8fafc;
 }
 
-/* Header — glass */
+/* Header â€” glass */
 .site-header {
   border-bottom: 1px solid rgba(56, 189, 248, 0.1);
   position: sticky;
@@ -266,7 +266,7 @@ strong {
   gap: 1.35rem;
 }
 
-/* Cards — Techflux gradient */
+/* Cards â€” Techflux gradient */
 .article-card {
   background: linear-gradient(160deg, #0c1424 0%, #0f1c32 40%, #0c2d52 100%);
   border: 1px solid rgba(56, 189, 248, 0.15);
@@ -522,31 +522,32 @@ blockquote p { margin: 0; color: var(--text); }
 }
 .category-count { font-size: 0.8rem; color: var(--text-faint); }
 
-/* Featured lead story */
+/* Featured lead story — amber accent */
 .featured-section { margin-bottom: 2.75rem; }
 .featured-label {
   display: inline-block;
   font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: #fbbf24;
   margin-bottom: 0.75rem;
 }
 .featured-card {
   display: block;
   padding: 1.6rem 1.75rem;
   border-radius: 16px;
-  background: linear-gradient(145deg, #0c1628 0%, #0f2240 50%, #0c3558 100%);
-  border: 1px solid rgba(56, 189, 248, 0.28);
+  background: linear-gradient(145deg, #12100a 0%, #1a160c 40%, #1c1408 100%);
+  border: 1px solid rgba(251, 191, 36, 0.35);
   text-decoration: none;
   color: inherit;
   transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 24px rgba(251, 191, 36, 0.06);
 }
 .featured-card:hover {
-  border-color: rgba(56, 189, 248, 0.55);
+  border-color: rgba(251, 191, 36, 0.65);
   transform: translateY(-2px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 28px rgba(56, 189, 248, 0.12);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 0 32px rgba(251, 191, 36, 0.12);
   text-decoration: none;
   color: inherit;
 }
@@ -556,7 +557,7 @@ blockquote p { margin: 0; color: var(--text); }
   gap: 0.85rem;
   margin-bottom: 0.75rem;
   font-size: 0.8rem;
-  color: var(--accent-bright);
+  color: #fcd34d;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -564,8 +565,9 @@ blockquote p { margin: 0; color: var(--text); }
 .featured-cat {
   padding: 0.15rem 0.5rem;
   border-radius: 999px;
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(251, 191, 36, 0.4);
+  background: rgba(251, 191, 36, 0.12);
+  color: #fbbf24;
 }
 .featured-title {
   font-size: 1.55rem;
@@ -587,7 +589,7 @@ blockquote p { margin: 0; color: var(--text); }
   color: var(--text-faint);
   margin: 0;
   padding-top: 0.85rem;
-  border-top: 1px solid rgba(56, 189, 248, 0.15);
+  border-top: 1px solid rgba(251, 191, 36, 0.18);
 }
 @media (max-width: 639px) {
   .featured-title { font-size: 1.3rem; }
