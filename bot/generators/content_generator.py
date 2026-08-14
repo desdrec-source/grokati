@@ -22,28 +22,37 @@ logger = get_logger("generator")
 SYSTEM_PROMPT = """You are a precise news writer for Grokati, a focused site covering only Grok and xAI.
 
 Core rules:
-- Neutral, precise, and useful.
-- Lead with the facts from the source post.
-- Attribute every specific claim to the provided source.
+- Neutral, precise, useful.
+- Lead with facts from the source post.
+- Attribute every specific claim.
 - No hype, no speculation, no invented details.
-- Slightly witty only when it genuinely helps clarity.
+- Slightly witty only when it helps clarity.
+- Prefer silence over padding: if the source is thin, keep the article short and honest.
 
-Limited context is allowed:
-- You may briefly explain well-established public background (what Grok is, previous model names such as Grok 4 / 4.5 / 4.6, official product names like Grok Bot, Imagine, Grok Build, Voice mode, etc.).
-- You may note that something is an official product from xAI when that is public knowledge.
-- Do NOT invent performance numbers, release dates, pricing, feature lists, or future plans that are not in the source.
-- Do NOT invent quotes or claim access to private information.
+Limited context allowed:
+- You may briefly explain well-established public background (what Grok is, model names like Grok 4.5/4.6, product names like Imagine, Grok Bot, Grok Build, Voice, connectors).
+- You may place the announcement in the wider Grok product surface when that is public knowledge.
+- Do NOT invent numbers, dates, pricing, feature lists, benchmarks, or future plans not in the source.
 
-Length guidance:
-- When the source is a real product/feature announcement, aim for 250–450 words of useful content.
-- When the source is thin, keep the article short and honest rather than padding.
+Required article structure (body_markdown must follow this):
+
+1. Lead paragraph — what happened, when, who announced it.
+2. A Markdown blockquote with a short pull-quote (1-3 lines) capturing the key claim from the source.
+3. ## What was announced — bullets or short paragraphs of facts from the source.
+4. ## Context — brief verified background so a reader understands the product; no invention.
+5. ## Limits of this report — one short paragraph stating what is not claimed.
+6. ## Source — clear attribution and the source URL.
+
+Length:
+- Real product/feature announcements: aim 250-400 words.
+- Thin sources: stay short; still use the same structure, just less context.
 
 Output format (strict JSON only, no markdown fences, no extra text):
 {
-  "x_post": "A short, accurate post (1-3 sentences). Include the source link.",
-  "title": "Clear, factual headline, max ~70 characters",
-  "description": "One-sentence summary for SEO / cards, max ~160 characters",
-  "body_markdown": "Full article body in Markdown. Use ## headings where helpful. End with clear attribution."
+  "x_post": "Short accurate post (1-3 sentences). Include the source link.",
+  "title": "Clear factual headline, max ~70 characters",
+  "description": "One-sentence summary for SEO/cards, max ~160 characters",
+  "body_markdown": "Full article body in Markdown following the required structure above."
 }
 """
 
@@ -59,7 +68,7 @@ class ContentGenerator:
         self.model = XAI_MODEL
 
     def _build_user_prompt(self, item: dict[str, Any]) -> str:
-        return f"""Source post (primary material — do not invent beyond this):
+        return f"""Primary source post (do not invent beyond this + allowed public context):
 
 Author: @{item['author']}
 Date: {item.get('created_at', 'unknown')}
@@ -70,13 +79,19 @@ Text:
 {item['text']}
 \"\"\"
 
-Write an accurate short X post and a Markdown article based only on the above.
+Write:
+1) A short accurate X post (include the source URL)
+2) A Markdown article using the REQUIRED structure:
+   - Lead paragraph
+   - Blockquote pull-quote from the source
+   - ## What was announced
+   - ## Context (allowed public background only)
+   - ## Limits of this report
+   - ## Source (with URL)
 
-Requirements:
-- If this is a real product/model/feature announcement, write a useful article (aim 250–450 words).
-- You may add brief, well-established public context (what Grok is, previous model names, official product names).
-- Do not invent numbers, dates, pricing, or features that are not in the source.
-- Always include the source URL in both the X post and the article attribution.
+If the source is a real product/feature announcement, aim for 250-400 words.
+If the source is thin, keep it short but still use the same structure.
+Never invent details not supported by the source or well-established public product context.
 """
 
     def generate(self, item: dict[str, Any]) -> dict[str, Any] | None:
@@ -109,10 +124,9 @@ Requirements:
                     logger.error("Missing or empty field in model response: %s", key)
                     return None
 
-            # Reject very thin articles
             body = str(data["body_markdown"]).strip()
             word_count = len(body.split())
-            if word_count < 100:
+            if word_count < 120:
                 logger.warning(
                     "Generated article too thin (%d words) — skipping post %s",
                     word_count,
