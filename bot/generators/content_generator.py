@@ -214,6 +214,7 @@ source: "{source_name}"
 sourceUrl: "{source_url}"
 author: "Grokati"
 draft: false
+category: "{category}"
 {image_lines}---
 
 """
