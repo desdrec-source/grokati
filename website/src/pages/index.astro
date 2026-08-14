@@ -8,6 +8,9 @@ const articles = allArticles.sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
+const featured = articles[0] ?? null;
+const rest = articles.slice(1);
+
 const categoryOrder = ['models', 'imagine', 'bot', 'build', 'voice'] as const;
 const categoryLabels: Record<string, string> = {
   models: 'Models',
@@ -21,9 +24,20 @@ const grouped = categoryOrder
   .map((cat) => ({
     key: cat,
     label: categoryLabels[cat],
-    items: articles.filter((a) => (a.data.category || 'models') === cat),
+    items: rest.filter((a) => (a.data.category || 'models') === cat),
   }))
   .filter((g) => g.items.length > 0);
+
+const featuredCategory = featured
+  ? categoryLabels[featured.data.category || 'models'] || 'Models'
+  : '';
+const featuredDate = featured
+  ? featured.data.pubDate.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    })
+  : '';
 ---
 
 <BaseLayout title="Grokati" description="High-signal, accurate news about Grok and xAI. Accuracy over volume.">
@@ -34,6 +48,21 @@ const grouped = categoryOrder
       Focused coverage of official announcements and high-signal developments.
     </p>
   </section>
+
+  {featured && (
+    <section class="featured-section">
+      <p class="featured-label">Featured</p>
+      <a class="featured-card" href={`/articles/${featured.slug}`}>
+        <div class="featured-meta">
+          <time datetime={featured.data.pubDate.toISOString()}>{featuredDate}</time>
+          <span class="featured-cat">{featuredCategory}</span>
+        </div>
+        <h2 class="featured-title">{featured.data.title}</h2>
+        <p class="featured-desc">{featured.data.description}</p>
+        <p class="featured-source">Source: {featured.data.source}</p>
+      </a>
+    </section>
+  )}
 
   {articles.length === 0 ? (
     <p class="muted">No articles yet.</p>
