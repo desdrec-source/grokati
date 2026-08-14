@@ -595,3 +595,48 @@ blockquote p { margin: 0; color: var(--text); }
   .featured-title { font-size: 1.3rem; }
   .featured-card { padding: 1.25rem 1.3rem; }
 }
+
+/* Products hub */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.15rem;
+  margin-top: 1.75rem;
+}
+.product-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.35rem 1.4rem;
+  border-radius: 14px;
+  background: linear-gradient(160deg, #0c1424 0%, #0f1c32 45%, #0c2d52 100%);
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  min-height: 10rem;
+}
+.product-card:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  text-decoration: none;
+  color: inherit;
+}
+.product-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 0.55rem;
+  letter-spacing: -0.02em;
+}
+.product-card-blurb {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0 0 1rem;
+  flex: 1;
+}
+.product-card-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+}
