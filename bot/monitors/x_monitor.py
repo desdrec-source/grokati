@@ -98,6 +98,43 @@ class XMonitor:
             )
         return out
 
+
+    def fetch_tweet_by_id(self, tweet_id: str) -> dict[str, Any] | None:
+        """Fetch a single post by ID (bypass timeline window)."""
+        tid = str(tweet_id).strip()
+        params = {
+            "tweet.fields": "created_at,public_metrics,referenced_tweets,entities,lang,attachments,author_id",
+            "expansions": "attachments.media_keys,author_id",
+            "media.fields": "url,preview_image_url,type,alt_text,width,height",
+            "user.fields": "username,name",
+        }
+        data = self._get(f"/tweets/{tid}", params=params)
+        tw = data.get("data")
+        if not tw:
+            logger.warning("No tweet data for id %s", tid)
+            return None
+
+        includes = data.get("includes") or {}
+        media_list = includes.get("media") or []
+        media_by_key = {m["media_key"]: m for m in media_list if "media_key" in m}
+        users = {u["id"]: u for u in (includes.get("users") or []) if "id" in u}
+        author_id = tw.get("author_id")
+        username = (users.get(author_id) or {}).get("username") or "unknown"
+
+        media = self._extract_media(tw, media_by_key)
+        return {
+            "id": tw["id"],
+            "text": tw.get("text", ""),
+            "created_at": tw.get("created_at"),
+            "author": username,
+            "url": f"https://x.com/{username}/status/{tw['id']}",
+            "media": media,
+            "has_video": any(
+                (m.get("type") or "").lower() in ("video", "animated_gif")
+                for m in media
+            ),
+            "raw": tw,
+        }
     def fetch_high_signal_posts(self) -> list[dict[str, Any]]:
         results: list[dict[str, Any]] = []
         accounts = list(WATCH_ACCOUNTS)

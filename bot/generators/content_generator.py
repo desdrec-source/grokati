@@ -175,6 +175,10 @@ Never invent details not supported by the source or well-established public prod
         slug = slugify(title)
         date_str = (item.get("created_at") or datetime.now(timezone.utc).isoformat())[:10]
         filename = f"{date_str}-{slug}.md"
+        image_basename = f"{date_str}-{slug}"
+        slug = slugify(title)
+        date_str = (item.get("created_at") or datetime.now(timezone.utc).isoformat())[:10]
+        filename = f"{date_str}-{slug}.md"
 
         now = datetime.now(timezone.utc)
         pub_date = item.get("created_at") or now.isoformat()
