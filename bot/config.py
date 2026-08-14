@@ -44,6 +44,8 @@ OUTPUT_DIR: Path = BOT_DIR / os.getenv("OUTPUT_DIR", "output")
 ARTICLES_OUT: Path = OUTPUT_DIR / "articles"
 POSTS_OUT: Path = OUTPUT_DIR / "posts"
 IMAGES_OUT: Path = OUTPUT_DIR / "images"
+STATE_DIR: Path = BOT_DIR / os.getenv("STATE_DIR", "state")
+PROCESSED_PATH: Path = STATE_DIR / "processed.json"
 
 WEBSITE_ARTICLES_DIR: Path = (
     BOT_DIR / os.getenv("WEBSITE_ARTICLES_DIR", "../website/src/content/articles")
@@ -58,6 +60,7 @@ LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO").upper()
 ARTICLES_OUT.mkdir(parents=True, exist_ok=True)
 POSTS_OUT.mkdir(parents=True, exist_ok=True)
 IMAGES_OUT.mkdir(parents=True, exist_ok=True)
+STATE_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def validate_required() -> list[str]:

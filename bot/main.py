@@ -1,30 +1,22 @@
 #!/usr/bin/env python3
-"""
-Grokati automation entry point.
-
-Default behaviour = dry-run:
-  - Fetches high-signal posts from official accounts
-  - Generates X post text + Markdown article via Grok API
-  - Writes files only under bot/output/
-  - Does NOT post to X and does NOT modify the website content folder
-
-Set LIVE_MODE=true in .env to also copy generated Markdown into the Astro articles folder.
-"""
+"""Grokati automation entry point with processed-post memory."""
 
 from __future__ import annotations
 
 import sys
 from pathlib import Path
 
-# Make sure bot/ is on the path when run as script
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from config import (
     LIVE_MODE,
     WEBSITE_ARTICLES_DIR,
+    ARTICLES_OUT,
+    PROCESSED_PATH,
     validate_required,
 )
 from utils.logger import get_logger
+from utils.state import ProcessedStore
 from monitors.x_monitor import XMonitor
 from generators.content_generator import ContentGenerator
 
@@ -37,14 +29,16 @@ def main() -> int:
 
     missing = validate_required()
     if missing:
-        logger.error(
-            "Missing required environment variables: %s",
-            ", ".join(missing),
-        )
-        logger.error("Copy .env.example → .env and fill in the keys.")
+        logger.error("Missing required environment variables: %s", ", ".join(missing))
         return 1
 
-    # 1. Fetch high-signal posts
+    store = ProcessedStore(PROCESSED_PATH)
+    seeded = 0
+    seeded += store.seed_from_articles(WEBSITE_ARTICLES_DIR)
+    seeded += store.seed_from_articles(ARTICLES_OUT)
+    if seeded:
+        logger.info("Processed memory now tracks %d posts", len(store.known_ids()))
+
     try:
         monitor = XMonitor()
         posts = monitor.fetch_high_signal_posts()
@@ -53,10 +47,17 @@ def main() -> int:
         return 1
 
     if not posts:
-        logger.info("No high-signal posts found. Exiting quietly (this is expected sometimes).")
+        logger.info("No high-signal posts found. Exiting quietly.")
         return 0
 
-    # 2. Generate content for each
+    new_posts = [p for p in posts if not store.has(p["id"])]
+    skipped = len(posts) - len(new_posts)
+    if skipped:
+        logger.info("Skipping %d already-processed post(s)", skipped)
+    if not new_posts:
+        logger.info("Nothing new to process. Exiting quietly.")
+        return 0
+
     try:
         generator = ContentGenerator()
     except Exception as e:
@@ -64,7 +65,7 @@ def main() -> int:
         return 1
 
     success = 0
-    for item in posts:
+    for item in new_posts:
         logger.info("Processing @%s — %s", item["author"], item["id"])
         generated = generator.generate(item)
         if not generated:
@@ -78,14 +79,20 @@ def main() -> int:
             website_dir=WEBSITE_ARTICLES_DIR if LIVE_MODE else None,
         )
         if path:
+            store.mark(
+                item["id"],
+                url=item.get("url"),
+                author=item.get("author"),
+                title=generated.get("title"),
+            )
             success += 1
 
-    logger.info("Done. Generated content for %d / %d posts.", success, len(posts))
-    if not LIVE_MODE:
-        logger.info(
-            "Dry-run complete. Inspect bot/output/articles/ and bot/output/posts/."
-        )
-        logger.info("To enable live writing into the website, set LIVE_MODE=true.")
+    logger.info(
+        "Done. Generated content for %d / %d new post(s) (%d already known).",
+        success,
+        len(new_posts),
+        skipped,
+    )
     return 0
 
 
