@@ -819,3 +819,25 @@ blockquote p { margin: 0; color: var(--text); }
 }
 .article-card.has-image:hover .card-image img { transform: scale(1.03); }
 .article-card.has-image .card-body { padding: 1.1rem 1.25rem 1.25rem; }
+
+.x-embed {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1rem 0.5rem;
+  border-radius: 14px;
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  background: rgba(10, 14, 22, 0.9);
+  overflow: hidden;
+}
+.x-embed-label {
+  margin: 0 0 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(148, 163, 184, 0.9);
+}
+.x-embed-fallback {
+  margin: 0.5rem 0 0.75rem;
+  font-size: 0.85rem;
+  color: rgba(148, 163, 184, 0.85);
+}

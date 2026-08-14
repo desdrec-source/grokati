@@ -123,7 +123,7 @@ class XMonitor:
                                 "created_at": tw.get("created_at"),
                                 "author": username,
                                 "url": f"https://x.com/{username}/status/{tw['id']}",
-                                "media": media,
+                                "media": media,`r`n                                "has_video": any(`r`n                                    (m.get("type") or "").lower() in ("video", "animated_gif")`r`n                                    for m in media`r`n                                ),
                                 "raw": tw,
                             }
                         )

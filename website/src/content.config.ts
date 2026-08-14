@@ -15,6 +15,7 @@ const articles = defineCollection({
     category: z.enum(['models', 'imagine', 'bot', 'build', 'voice']).default('models'),
     image: z.string().optional(),
     imageAlt: z.string().optional(),
+    hasVideo: z.boolean().default(false),
   }),
 });
 
