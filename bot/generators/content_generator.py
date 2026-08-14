@@ -22,7 +22,7 @@ from config import (
     IMAGES_OUT,
     WEBSITE_IMAGES_DIR,
 )
-from utils.media import download_source_image
+from utils.media import download_source_image, download_official_og_image, extract_http_urls
 from utils.logger import get_logger
 from utils.filters import slugify
 
@@ -189,9 +189,20 @@ Never invent details not supported by the source or well-established public prod
 
         image_lines = ""
         media_list = item.get("media") or []
+        downloaded = None
         if media_list:
             image_basename = f"{date_str}-{slug}"
             downloaded = download_source_image(media_list, IMAGES_OUT, image_basename)
+
+        if not downloaded:
+            page_candidates = extract_http_urls(
+                item.get("text") or "",
+                generated.get("body_markdown") or "",
+                source_url,
+            )
+            downloaded = download_official_og_image(
+                page_candidates, IMAGES_OUT, image_basename
+            )
             if downloaded:
                 local_path, alt = downloaded
                 public_name = local_path.name
