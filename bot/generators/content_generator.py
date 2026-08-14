@@ -19,24 +19,31 @@ from utils.filters import slugify
 
 logger = get_logger("generator")
 
-SYSTEM_PROMPT = """You are a precise news writer for Grokati, a high-signal site covering only Grok and xAI.
+SYSTEM_PROMPT = """You are a precise news writer for Grokati, a focused site covering only Grok and xAI.
 
-Core rules (never break these):
+Core rules:
 - Neutral, precise, and useful.
-- Lead with the facts.
-- Attribute every claim to the provided source.
-- No hype, no speculation, no invented details, no filler.
+- Lead with the facts from the source post.
+- Attribute every specific claim to the provided source.
+- No hype, no speculation, no invented details.
 - Slightly witty only when it genuinely helps clarity.
-- Prefer silence: if the source is thin, write a short accurate piece rather than padding.
-- Never claim access to private information or future plans that are not in the source.
 
-Output format (strict):
-You must reply with valid JSON only, no markdown fences, no extra text:
+Limited context is allowed:
+- You may briefly explain well-established public background (what Grok is, previous model names such as Grok 4 / 4.5 / 4.6, official product names like Grok Bot, Imagine, Grok Build, Voice mode, etc.).
+- You may note that something is an official product from xAI when that is public knowledge.
+- Do NOT invent performance numbers, release dates, pricing, feature lists, or future plans that are not in the source.
+- Do NOT invent quotes or claim access to private information.
+
+Length guidance:
+- When the source is a real product/feature announcement, aim for 250–450 words of useful content.
+- When the source is thin, keep the article short and honest rather than padding.
+
+Output format (strict JSON only, no markdown fences, no extra text):
 {
-  "x_post": "A short, accurate post (1-4 sentences or a short thread of 2-3 posts separated by \\n\\n---\\n\\n). Ready to publish on X. Include the source link.",
+  "x_post": "A short, accurate post (1-3 sentences). Include the source link.",
   "title": "Clear, factual headline, max ~70 characters",
   "description": "One-sentence summary for SEO / cards, max ~160 characters",
-  "body_markdown": "The full article body in Markdown (300-500 words preferred, shorter if source is thin). Use ## headings where helpful. End with a short attribution line."
+  "body_markdown": "Full article body in Markdown. Use ## headings where helpful. End with clear attribution."
 }
 """
 
@@ -64,8 +71,12 @@ Text:
 \"\"\"
 
 Write an accurate short X post and a Markdown article based only on the above.
-If the post is an official product/model announcement, focus on what was stated.
-Always keep the source URL in the X post and in the article attribution.
+
+Requirements:
+- If this is a real product/model/feature announcement, write a useful article (aim 250–450 words).
+- You may add brief, well-established public context (what Grok is, previous model names, official product names).
+- Do not invent numbers, dates, pricing, or features that are not in the source.
+- Always include the source URL in both the X post and the article attribution.
 """
 
     def generate(self, item: dict[str, Any]) -> dict[str, Any] | None:
@@ -86,7 +97,6 @@ Always keep the source URL in the X post and in the article attribution.
             raw = response.choices[0].message.content or ""
             raw = raw.strip()
 
-            # Strip accidental markdown fences if the model adds them
             if raw.startswith("```"):
                 raw = re.sub(r"^```(?:json)?\s*", "", raw)
                 raw = re.sub(r"\s*```$", "", raw)
@@ -98,6 +108,17 @@ Always keep the source URL in the X post and in the article attribution.
                 if key not in data or not str(data[key]).strip():
                     logger.error("Missing or empty field in model response: %s", key)
                     return None
+
+            # Reject very thin articles
+            body = str(data["body_markdown"]).strip()
+            word_count = len(body.split())
+            if word_count < 100:
+                logger.warning(
+                    "Generated article too thin (%d words) — skipping post %s",
+                    word_count,
+                    item["id"],
+                )
+                return None
 
             return data
 
@@ -115,20 +136,13 @@ Always keep the source URL in the X post and in the article attribution.
         live: bool = False,
         website_dir: Path | None = None,
     ) -> Path | None:
-        """
-        Write the Markdown article and the X post text to the output folders.
-        Returns path to the written Markdown file.
-        """
         title = generated["title"]
         slug = slugify(title)
-        # Make filename unique-ish with date + short id
         date_str = (item.get("created_at") or datetime.now(timezone.utc).isoformat())[:10]
         filename = f"{date_str}-{slug}.md"
 
-        # Frontmatter
         now = datetime.now(timezone.utc)
         pub_date = item.get("created_at") or now.isoformat()
-        # Normalize to YYYY-MM-DD for frontmatter
         try:
             pub_date_short = pub_date[:10]
         except Exception:
@@ -149,23 +163,19 @@ draft: false
 
 """
         body = generated["body_markdown"].strip()
-        # Ensure attribution is present
         if source_url not in body:
             body += f"\n\n*Source: [{source_name}]({source_url})*"
 
         full_md = frontmatter + body + "\n"
 
-        # Write dry-run / output copy
         out_path = ARTICLES_OUT / filename
         out_path.write_text(full_md, encoding="utf-8")
         logger.info("Wrote article → %s", out_path)
 
-        # Write X post text
         post_path = POSTS_OUT / f"{date_str}-{slug}.txt"
         post_path.write_text(generated["x_post"].strip() + "\n", encoding="utf-8")
         logger.info("Wrote X post  → %s", post_path)
 
-        # Optional live copy into the Astro content folder
         if live and website_dir:
             website_dir.mkdir(parents=True, exist_ok=True)
             live_path = website_dir / filename

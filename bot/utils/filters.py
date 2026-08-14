@@ -1,6 +1,6 @@
 """
 Strict high-signal filters for X posts.
-Prefer silence over noise.
+Core principle: Prefer silence over low-value content.
 """
 
 from __future__ import annotations
@@ -11,8 +11,30 @@ from typing import Any
 from config import HIGH_SIGNAL_KEYWORDS
 
 
+ANNOUNCEMENT_PHRASES = [
+    "now available",
+    "is now live",
+    "is now out",
+    "just released",
+    "we're releasing",
+    "we are releasing",
+    "announcing",
+    "introducing",
+    "launched",
+    "launching",
+    "available today",
+    "available now",
+    "public beta",
+    "open beta",
+    "rolling out",
+    "now rolling out",
+    "model release",
+    "api update",
+    "new model",
+]
+
+
 def is_reply(post: dict[str, Any]) -> bool:
-    """True if the post is a reply."""
     ref = post.get("referenced_tweets") or []
     return any(r.get("type") == "replied_to" for r in ref)
 
@@ -30,51 +52,72 @@ def contains_high_signal_keyword(text: str) -> bool:
     return False
 
 
+def contains_announcement_phrase(text: str) -> bool:
+    text_lower = text.lower()
+    return any(phrase in text_lower for phrase in ANNOUNCEMENT_PHRASES)
+
+
+def has_enough_substance(text: str) -> bool:
+    """
+    Reject posts that cannot support a real article.
+    """
+    text = text.strip()
+    if len(text) < 100:
+        return False
+
+    sentences = [s.strip() for s in re.split(r"[.!?]+", text) if len(s.strip()) > 20]
+    if len(sentences) < 2:
+        return False
+
+    # Reject pure ranking / one-claim posts
+    ranking_patterns = [
+        r"ranks?\s*#?\s*1",
+        r"#1\s+on",
+        r"number\s+one",
+        r"top\s+of\s+the",
+        r"best\s+with",
+        r"works?\s+best\s+with",
+    ]
+    text_lower = text.lower()
+    is_ranking_claim = any(re.search(p, text_lower) for p in ranking_patterns)
+    if is_ranking_claim and len(text) < 220:
+        return False
+
+    return True
+
+
 def is_high_signal(
     post: dict[str, Any],
     author_username: str | None = None,
     require_keyword_for_elon: bool = True,
 ) -> bool:
     """
-    Decide whether a post is worth generating content from.
-
-    Rules (Phase 1):
-    - Skip pure replies and retweets (unless they contain substantial new text — keep simple for now).
-    - Official accounts (@grok, @xai) are trusted more highly.
-    - Elon posts are only kept if they clearly mention Grok / xAI related keywords.
-    - Must not be empty or pure engagement bait (very short, only emojis, etc.).
+    Only keep posts that can support a proper article.
     """
     text = (post.get("text") or "").strip()
-    if not text or len(text) < 20:
+    if not text:
         return False
 
-    if is_retweet(post):
+    if is_retweet(post) or is_reply(post):
         return False
 
-    # Allow replies only if they are substantial and from official accounts (rare)
-    if is_reply(post) and author_username not in ("grok", "xai"):
+    if not has_enough_substance(text):
         return False
 
     username = (author_username or "").lower().lstrip("@")
+    has_keyword = contains_high_signal_keyword(text)
+    has_announcement = contains_announcement_phrase(text)
 
     if username in ("grok", "xai"):
-        # Official accounts: accept most non-reply/non-rt content
-        # Still skip pure "yes" / emoji-only style posts
-        if len(text) < 40 and not contains_high_signal_keyword(text):
-            return False
-        return True
+        return has_keyword or has_announcement
 
-    if username == "elonmusk" or username == "elon":
-        if require_keyword_for_elon:
-            return contains_high_signal_keyword(text)
-        return True
+    if username in ("elonmusk", "elon"):
+        return has_keyword
 
-    # Fallback: keyword required
-    return contains_high_signal_keyword(text)
+    return has_keyword
 
 
 def slugify(title: str) -> str:
-    """Simple slug for filenames."""
     slug = title.lower().strip()
     slug = re.sub(r"[^\w\s-]", "", slug)
     slug = re.sub(r"[-\s]+", "-", slug)
