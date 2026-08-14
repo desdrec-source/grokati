@@ -1,5 +1,110 @@
 {
   "posts": {
+    "2079993729532989500": {
+      "author": "cursor_ai",
+      "id": "2079993729532989500",
+      "processed_at": "2026-08-14T18:16:01.371349+00:00",
+      "title": "Cursor AI Launches Cursor Router for Model Selection",
+      "url": "https://x.com/cursor_ai/status/2079993729532989500"
+    },
+    "2079993731063955665": {
+      "author": "cursor_ai",
+      "id": "2079993731063955665",
+      "processed_at": "2026-08-14T18:15:48.163765+00:00",
+      "title": "Cursor AI Describes Router for Model Selection",
+      "url": "https://x.com/cursor_ai/status/2079993731063955665"
+    },
+    "2079993735082016851": {
+      "author": "cursor_ai",
+      "id": "2079993735082016851",
+      "processed_at": "2026-08-14T18:15:32.773935+00:00",
+      "title": "Cursor Router rolls out to Teams and Enterprise plans",
+      "url": "https://x.com/cursor_ai/status/2079993735082016851"
+    },
+    "2080321013565579709": {
+      "author": "grok",
+      "id": "2080321013565579709",
+      "processed_at": "2026-08-14T18:13:01.059570+00:00",
+      "title": "Grok 4.5 Now Available on grok.com, X, and Mobile Apps",
+      "url": "https://x.com/grok/status/2080321013565579709"
+    },
+    "2080321014890934526": {
+      "author": "grok",
+      "id": "2080321014890934526",
+      "processed_at": "2026-08-14T18:12:51.382508+00:00",
+      "title": "Grok Account Describes Grok 4.5 Conversation and Reasoning Features",
+      "url": "https://x.com/grok/status/2080321014890934526"
+    },
+    "2080321015926919656": {
+      "author": "grok",
+      "id": "2080321015926919656",
+      "processed_at": "2026-08-14T18:12:44.482270+00:00",
+      "title": "Grok Account Notes Knowledge Work Capabilities",
+      "url": "https://x.com/grok/status/2080321015926919656"
+    },
+    "2080428008989729083": {
+      "author": "grok",
+      "id": "2080428008989729083",
+      "processed_at": "2026-08-14T18:12:36.669243+00:00",
+      "title": "Workflows Feature Added to Grok Build",
+      "url": "https://x.com/grok/status/2080428008989729083"
+    },
+    "2080700479940759919": {
+      "author": "cursor_ai",
+      "id": "2080700479940759919",
+      "processed_at": "2026-08-14T18:15:23.260320+00:00",
+      "title": "Cursor Adds Claude Opus 5 Availability",
+      "url": "https://x.com/cursor_ai/status/2080700479940759919"
+    },
+    "2080716512009343207": {
+      "author": "grok",
+      "id": "2080716512009343207",
+      "processed_at": "2026-08-14T18:12:30.053111+00:00",
+      "title": "Grok Adds Google Workspace Integration via One Add-on",
+      "url": "https://x.com/grok/status/2080716512009343207"
+    },
+    "2081848014444876166": {
+      "author": "cursor_ai",
+      "id": "2081848014444876166",
+      "processed_at": "2026-08-14T18:15:08.649374+00:00",
+      "title": "Kimi K3 Added to Cursor",
+      "url": "https://x.com/cursor_ai/status/2081848014444876166"
+    },
+    "2081978255004053560": {
+      "author": "cursor_ai",
+      "id": "2081978255004053560",
+      "processed_at": "2026-08-14T18:14:55.590926+00:00",
+      "title": "Cursor Launches \u20b9649 India Plan with Grok 4.5 Access",
+      "url": "https://x.com/cursor_ai/status/2081978255004053560"
+    },
+    "2081978257034063903": {
+      "author": "cursor_ai",
+      "id": "2081978257034063903",
+      "processed_at": "2026-08-14T18:14:46.894297+00:00",
+      "title": "Cursor Start Adds Cloud Agents and iOS Control",
+      "url": "https://x.com/cursor_ai/status/2081978257034063903"
+    },
+    "2082134072793637196": {
+      "author": "grok",
+      "id": "2082134072793637196",
+      "processed_at": "2026-08-14T18:12:03.318768+00:00",
+      "title": "Grok Adds App Building for SuperGrok Heavy Users",
+      "url": "https://x.com/grok/status/2082134072793637196"
+    },
+    "2082134074370785746": {
+      "author": "grok",
+      "id": "2082134074370785746",
+      "processed_at": "2026-08-14T18:11:51.030822+00:00",
+      "title": "Grok Promotes Build Mode for App Creation",
+      "url": "https://x.com/grok/status/2082134074370785746"
+    },
+    "2082210184500507049": {
+      "author": "grok",
+      "id": "2082210184500507049",
+      "processed_at": "2026-08-14T18:11:42.559450+00:00",
+      "title": "Grok 4.5 Now Available in GitHub Copilot",
+      "url": "https://x.com/grok/status/2082210184500507049"
+    },
     "2083353607370416632": {
       "id": "2083353607370416632",
       "processed_at": "2026-08-14T16:15:15.176961+00:00",
@@ -12,11 +117,32 @@
       "title": "2026-08-01-grok-availability-update-for-supergrok-subscribers",
       "url": "https://x.com/grok/status/2083353609282912495"
     },
+    "2084670808337564034": {
+      "author": "cursor_ai",
+      "id": "2084670808337564034",
+      "processed_at": "2026-08-14T18:14:08.600625+00:00",
+      "title": "Cursor AI Says MoK Raises Training Throughput 1.41x",
+      "url": "https://x.com/cursor_ai/status/2084670808337564034"
+    },
     "2085083115488260175": {
       "id": "2085083115488260175",
       "processed_at": "2026-08-14T16:15:15.191387+00:00",
       "title": "2026-08-05-connectors-now-available-in-grok-voice-mode",
       "url": "https://x.com/grok/status/2085083115488260175"
+    },
+    "2085390483740676365": {
+      "author": "cursor_ai",
+      "id": "2085390483740676365",
+      "processed_at": "2026-08-14T18:13:57.673336+00:00",
+      "title": "Cursor Router Improves via User Interactions",
+      "url": "https://x.com/cursor_ai/status/2085390483740676365"
+    },
+    "2085390485502239171": {
+      "author": "cursor_ai",
+      "id": "2085390485502239171",
+      "processed_at": "2026-08-14T18:13:43.160735+00:00",
+      "title": "Cursor AI Shares Model Task Strengths Including Grok 4.5",
+      "url": "https://x.com/cursor_ai/status/2085390485502239171"
     },
     "2085842208414986750": {
       "id": "2085842208414986750",
@@ -66,6 +192,20 @@
       "title": "2026-08-11-imagine-image-20-now-available-on-grok-api",
       "url": "https://x.com/grok/status/2087310458206199832"
     },
+    "2087601785833951705": {
+      "author": "elonmusk",
+      "id": "2087601785833951705",
+      "processed_at": "2026-08-14T18:16:39.394387+00:00",
+      "title": "Elon Musk Promotes Grok 4.6 with 7-Day Token Bonus",
+      "url": "https://x.com/elonmusk/status/2087601785833951705"
+    },
+    "2087941307624980753": {
+      "author": "cursor_ai",
+      "id": "2087941307624980753",
+      "processed_at": "2026-08-14T18:13:20.931115+00:00",
+      "title": "Cursor Reports 3x Faster Cloud Agent Startup",
+      "url": "https://x.com/cursor_ai/status/2087941307624980753"
+    },
     "2087950407238861043": {
       "id": "2087950407238861043",
       "processed_at": "2026-08-14T16:15:15.209550+00:00",
@@ -77,6 +217,13 @@
       "processed_at": "2026-08-14T16:15:15.179855+00:00",
       "title": "2026-08-13-grok-resets-limits-during-grok-46-launch",
       "url": "https://x.com/grok/status/2087959772909949375"
+    },
+    "2087991786279251993": {
+      "author": "cursor_ai",
+      "id": "2087991786279251993",
+      "processed_at": "2026-08-14T18:13:11.306301+00:00",
+      "title": "Cursor Welcomes Firetiger Team",
+      "url": "https://x.com/cursor_ai/status/2087991786279251993"
     },
     "2088033597999473050": {
       "id": "2088033597999473050",
