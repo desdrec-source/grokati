@@ -177,6 +177,7 @@ Never invent details not supported by the source or well-established public prod
         image_lines = ""
         media_list = item.get("media") or []
         if media_list:
+            image_basename = f"{date_str}-{slug}"
             downloaded = download_source_image(media_list, IMAGES_OUT, image_basename)
             if downloaded:
                 local_path, alt = downloaded
