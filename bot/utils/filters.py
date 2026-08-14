@@ -1,7 +1,4 @@
-"""
-Strict high-signal filters for X posts.
-Core principle: Prefer silence over low-value content.
-"""
+"""High-signal filters — wider Grok coverage. Still no invented facts."""
 
 from __future__ import annotations
 
@@ -12,25 +9,12 @@ from config import HIGH_SIGNAL_KEYWORDS
 
 
 ANNOUNCEMENT_PHRASES = [
-    "now available",
-    "is now live",
-    "is now out",
-    "just released",
-    "we're releasing",
-    "we are releasing",
-    "announcing",
-    "introducing",
-    "launched",
-    "launching",
-    "available today",
-    "available now",
-    "public beta",
-    "open beta",
-    "rolling out",
-    "now rolling out",
-    "model release",
-    "api update",
-    "new model",
+    "now available", "is now live", "is now out", "just released",
+    "we're releasing", "we are releasing", "announcing", "introducing",
+    "launched", "launching", "available today", "available now",
+    "public beta", "open beta", "rolling out", "now rolling out",
+    "model release", "api update", "new model", "acquired", "acquisition",
+    "partnership", "partnering", "joining", "update", "shipping",
 ]
 
 
@@ -49,6 +33,10 @@ def contains_high_signal_keyword(text: str) -> bool:
     for kw in HIGH_SIGNAL_KEYWORDS:
         if kw.lower() in text_lower:
             return True
+    if re.search(r"\bgrok\b", text_lower):
+        return True
+    if re.search(r"\bxai\b", text_lower) or "x.ai" in text_lower:
+        return True
     return False
 
 
@@ -58,32 +46,7 @@ def contains_announcement_phrase(text: str) -> bool:
 
 
 def has_enough_substance(text: str) -> bool:
-    """
-    Reject posts that cannot support a real article.
-    """
-    text = text.strip()
-    if len(text) < 100:
-        return False
-
-    sentences = [s.strip() for s in re.split(r"[.!?]+", text) if len(s.strip()) > 20]
-    if len(sentences) < 2:
-        return False
-
-    # Reject pure ranking / one-claim posts
-    ranking_patterns = [
-        r"ranks?\s*#?\s*1",
-        r"#1\s+on",
-        r"number\s+one",
-        r"top\s+of\s+the",
-        r"best\s+with",
-        r"works?\s+best\s+with",
-    ]
-    text_lower = text.lower()
-    is_ranking_claim = any(re.search(p, text_lower) for p in ranking_patterns)
-    if is_ranking_claim and len(text) < 220:
-        return False
-
-    return True
+    return len(text.strip()) >= 40
 
 
 def is_high_signal(
@@ -91,25 +54,26 @@ def is_high_signal(
     author_username: str | None = None,
     require_keyword_for_elon: bool = True,
 ) -> bool:
-    """
-    Only keep posts that can support a proper article.
-    """
     text = (post.get("text") or "").strip()
     if not text:
         return False
-
-    if is_retweet(post) or is_reply(post):
-        return False
-
-    if not has_enough_substance(text):
+    if is_retweet(post):
         return False
 
     username = (author_username or "").lower().lstrip("@")
     has_keyword = contains_high_signal_keyword(text)
     has_announcement = contains_announcement_phrase(text)
 
+    if is_reply(post):
+        if not has_keyword:
+            return False
+        return len(text) >= 60
+
+    if not has_enough_substance(text):
+        return False
+
     if username in ("grok", "xai"):
-        return has_keyword or has_announcement
+        return has_keyword or has_announcement or len(text) >= 80
 
     if username in ("elonmusk", "elon"):
         return has_keyword
