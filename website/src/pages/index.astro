@@ -11,7 +11,7 @@ const articles = allArticles.sort(
 const featured = articles[0] ?? null;
 const rest = articles.slice(1);
 
-const categoryOrder = ['models', 'imagine', 'bot', 'build', 'voice'] as const;
+const categoryOrder = ['imagine', 'bot', 'build', 'voice', 'models'] as const;
 const categoryLabels: Record<string, string> = {
   models: 'Models',
   imagine: 'Imagine',
