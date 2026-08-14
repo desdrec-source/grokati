@@ -1,4 +1,4 @@
-/* Grokati - Techflux-inspired dark tech design */
+/* Grokati â€” Techflux-inspired dark tech design */
 
 :root {
   --bg: #030508;
@@ -650,7 +650,6 @@ blockquote p { margin: 0; color: var(--text); }
 .product-models:hover {
   border-color: rgba(56, 189, 248, 0.45);
   border-left-color: #38bdf8;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35), 0 0 20px rgba(56, 189, 248, 0.08);
 }
 
 .product-imagine { border-left-color: #a78bfa; }
@@ -659,7 +658,6 @@ blockquote p { margin: 0; color: var(--text); }
 .product-imagine:hover {
   border-color: rgba(167, 139, 250, 0.4);
   border-left-color: #a78bfa;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35), 0 0 20px rgba(167, 139, 250, 0.1);
 }
 
 .product-bot { border-left-color: #2dd4bf; }
@@ -668,7 +666,6 @@ blockquote p { margin: 0; color: var(--text); }
 .product-bot:hover {
   border-color: rgba(45, 212, 191, 0.4);
   border-left-color: #2dd4bf;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35), 0 0 20px rgba(45, 212, 191, 0.1);
 }
 
 .product-build { border-left-color: #fbbf24; }
@@ -677,7 +674,6 @@ blockquote p { margin: 0; color: var(--text); }
 .product-build:hover {
   border-color: rgba(251, 191, 36, 0.4);
   border-left-color: #fbbf24;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35), 0 0 20px rgba(251, 191, 36, 0.1);
 }
 
 .product-voice { border-left-color: #4ade80; }
@@ -686,5 +682,4 @@ blockquote p { margin: 0; color: var(--text); }
 .product-voice:hover {
   border-color: rgba(74, 222, 128, 0.4);
   border-left-color: #4ade80;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35), 0 0 20px rgba(74, 222, 128, 0.1);
 }
