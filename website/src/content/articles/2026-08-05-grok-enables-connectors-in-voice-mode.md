@@ -6,6 +6,7 @@ source: "@grok on X"
 sourceUrl: "https://x.com/grok/status/2085083115488260175"
 author: "Grokati"
 draft: false
+category: voice
 image: "/images/articles/2026-08-05-grok-enables-connectors-in-voice-mode.jpg"
 imageAlt: "Image from the source post"
 ---

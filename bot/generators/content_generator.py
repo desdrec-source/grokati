@@ -67,6 +67,18 @@ Output format (strict JSON only, no markdown fences, no extra text):
 
 
 class ContentGenerator:
+    @staticmethod
+    def _infer_category(item: dict[str, Any], title: str, body: str) -> str:
+        text = f"{title} {body} {item.get('text', '')}".lower()
+        if any(k in text for k in ("imagine", "image 2", "video 1.5", "text-to-video")):
+            return "imagine"
+        if any(k in text for k in ("grok bot", "grokbot", "agentic tool")):
+            return "bot"
+        if any(k in text for k in ("grok build", "build harness")):
+            return "build"
+        if any(k in text for k in ("voice", "connector")):
+            return "voice"
+        return "models"
     def __init__(self):
         if not XAI_API_KEY:
             raise ValueError("XAI_API_KEY is required")
@@ -173,6 +185,7 @@ Never invent details not supported by the source or well-established public prod
 
         source_name = f"@{item['author']} on X"
         source_url = item["url"]
+        category = self._infer_category(item, title, generated["body_markdown"])
 
         image_lines = ""
         media_list = item.get("media") or []

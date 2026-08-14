@@ -6,6 +6,7 @@ source: "@grok on X"
 sourceUrl: "https://x.com/grok/status/2087310458206199832"
 author: "Grokati"
 draft: false
+category: imagine
 image: "/images/articles/2026-08-11-imagine-image-20-now-available-on-grok-api.jpg"
 imageAlt: "Image from the source post"
 ---

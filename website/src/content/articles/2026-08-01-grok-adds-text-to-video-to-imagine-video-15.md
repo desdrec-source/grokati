@@ -6,6 +6,7 @@ source: "@grok on X"
 sourceUrl: "https://x.com/grok/status/2083353607370416632"
 author: "Grokati"
 draft: false
+category: imagine
 image: "/images/articles/2026-08-01-grok-adds-text-to-video-to-imagine-video-15.jpg"
 imageAlt: "Image from the source post"
 ---
