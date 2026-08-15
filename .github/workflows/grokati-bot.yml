@@ -1,4 +1,4 @@
-name: Grokati bot
+﻿name: Grokati bot
 
 on:
   schedule:
@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   run-bot:
@@ -42,27 +41,14 @@ jobs:
           LOG_LEVEL: INFO
         run: python main.py
 
-      - name: Open PR with new content (if any)
-        uses: peter-evans/create-pull-request@v7
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "Bot: new high-signal Grok/xAI articles"
-          title: "Bot: new high-signal Grok/xAI articles"
-          body: |
-            Automated draft from the Grokati bot.
-
-            **Review before merge:**
-            - Accuracy and attribution look correct
-            - Categories are sensible
-            - Images (if any) are real source media
-
-            Processed-post memory is updated in `bot/state/processed.json`.
-          branch: bot/content-updates
-          delete-branch: true
-          add-paths: |
-            website/src/content/articles
-            website/public/images/articles
-            bot/state/processed.json
-          labels: |
-            bot
-            content
+      - name: Commit and push new content (if any)
+        run: |
+          git config user.name "grokati-bot"
+          git config user.email "bot@grokati.com"
+          git add website/src/content/articles website/public/images/articles bot/state/processed.json || true
+          if git diff --staged --quiet; then
+            echo "No new content to commit."
+            exit 0
+          fi
+          git commit -m "Bot: new high-signal Grok/xAI articles"
+          git push
