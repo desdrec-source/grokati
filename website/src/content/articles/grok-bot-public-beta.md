@@ -1,4 +1,4 @@
----
+﻿---
 title: "Grok Bot Opens to Public Beta"
 description: "xAI opened Grok Bot to public beta as AI teammates that can use tools and return finished work."
 pubDate: 2026-08-11
@@ -6,21 +6,31 @@ source: "@grok on X"
 sourceUrl: "https://x.com/grok/status/2087225707504214130"
 author: "Grokati"
 draft: false
-category: bot
+category: "bot"
 ---
 
 On 11 August 2026, **@grok** announced that **Grok Bot** had moved into **public beta**.
 
 > Grok Bot is in public beta — AI teammates that can sign into tools, do real work, and return finished results.
 
+<div class="video-embed">
+  <iframe
+    src="https://www.youtube.com/embed/LM7Ft7g8qJw"
+    title="Grok Bot public beta"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
+</div>
+
 ## What Grok Bot is
 
 xAI describes Grok Bot as more than a chat window. The public framing is:
 
-- **Teammates**, not only answer engines
-- Ability to **sign into tools**
-- Capacity to **perform real work**
-- Delivery of **finished results**, not only drafts or suggestions
+- **Teammates**, not only answer engines  
+- Ability to **sign into tools**  
+- Capacity to **perform real work**  
+- Delivery of **finished results**, not only drafts or suggestions  
 
 That places Grok Bot in the agent layer of the Grok stack: systems that take actions with tools, rather than models that only generate text.
 
