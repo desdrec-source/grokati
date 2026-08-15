@@ -1,0 +1,64 @@
+﻿---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const articles = allArticles.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+/** Group by year-month for readable archive scanning */
+function monthKey(d: Date): string {
+  return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}`;
+}
+
+function monthLabel(key: string): string {
+  const [y, m] = key.split('-').map(Number);
+  const date = new Date(Date.UTC(y, m - 1, 1));
+  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', timeZone: 'UTC' });
+}
+
+const byMonth = new Map<string, typeof articles>();
+for (const a of articles) {
+  const key = monthKey(a.data.pubDate);
+  const list = byMonth.get(key) ?? [];
+  list.push(a);
+  byMonth.set(key, list);
+}
+
+const months = [...byMonth.entries()];
+---
+
+<BaseLayout
+  title="Archive"
+  description="Full archive of high-signal Grok and xAI coverage on Grokati. Newest first."
+>
+  <section class="home-hero">
+    <p class="home-kicker">Grok &amp; xAI news</p>
+    <h1 class="page-title">Archive</h1>
+    <p class="page-subtitle muted">
+      Every published article, newest first. The homepage shows only the last 60 days.
+    </p>
+  </section>
+
+  {articles.length === 0 ? (
+    <p class="muted">No articles yet.</p>
+  ) : (
+    months.map(([key, items]) => (
+      <section class="archive-month">
+        <h2 class="archive-month-title">{monthLabel(key)}</h2>
+        <p class="archive-month-count muted">{items.length} article{items.length === 1 ? '' : 's'}</p>
+        <div class="articles-grid">
+          {items.map((article) => (
+            <ArticleCard article={article} />
+          ))}
+        </div>
+      </section>
+    ))
+  )}
+
+  <p class="archive-note muted" style="margin-top: 2.5rem;">
+    <a href="/">← Back to latest updates</a>
+  </p>
+</BaseLayout>

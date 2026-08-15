@@ -1,15 +1,26 @@
----
+﻿---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleCard from '../components/ArticleCard.astro';
+
+/** Homepage shows only recent high-signal items. Older pieces live on /archive. */
+const ARCHIVE_DAYS = 60;
 
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
 const articles = allArticles.sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-const featured = articles[0] ?? null;
-const rest = articles.slice(1);
+const cutoff = new Date();
+cutoff.setUTCDate(cutoff.getUTCDate() - ARCHIVE_DAYS);
+cutoff.setUTCHours(0, 0, 0, 0);
+const cutoffMs = cutoff.valueOf();
+
+const recent = articles.filter((a) => a.data.pubDate.valueOf() >= cutoffMs);
+const olderCount = articles.length - recent.length;
+
+const featured = recent[0] ?? null;
+const rest = recent.slice(1);
 
 const categoryOrder = ['imagine', 'bot', 'build', 'voice', 'models'] as const;
 const categoryLabels: Record<string, string> = {
@@ -58,14 +69,26 @@ const featuredDate = featured
           <span class="featured-cat">{featuredCategory}</span>
         </div>
         <h2 class="featured-title">{featured.data.title}</h2>
+        {featured.data.image && (
+          <div class="featured-image">
+            <img
+              src={featured.data.image}
+              alt={featured.data.imageAlt || featured.data.title}
+              width="1200"
+              height="630"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+        )}
         <p class="featured-desc">{featured.data.description}</p>
         <p class="featured-source">Source: {featured.data.source}</p>
       </a>
     </section>
   )}
 
-  {articles.length === 0 ? (
-    <p class="muted">No articles yet.</p>
+  {recent.length === 0 ? (
+    <p class="muted">No recent articles in the last {ARCHIVE_DAYS} days.</p>
   ) : (
     grouped.map((group) => (
       <section class={`category-section cat-${group.key}`}>
@@ -80,5 +103,12 @@ const featuredDate = featured
         </div>
       </section>
     ))
+  )}
+
+  {olderCount > 0 && (
+    <p class="archive-note muted">
+      Showing the last {ARCHIVE_DAYS} days.
+      <a href="/archive">{olderCount} older article{olderCount === 1 ? '' : 's'} → Archive</a>
+    </p>
   )}
 </BaseLayout>
