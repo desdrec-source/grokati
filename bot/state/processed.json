@@ -261,6 +261,13 @@
       "processed_at": "2026-08-14T18:00:03.785542+00:00",
       "title": "Cursor Acquired by SpaceX to Advance Grok",
       "url": "https://x.com/cursor_ai/status/2088249881718919393"
+    },
+    "2088319896597975501": {
+      "author": "grok",
+      "id": "2088319896597975501",
+      "processed_at": "2026-08-16T05:35:46.777673+00:00",
+      "title": "Grok 4.6 Now Available in GitHub Copilot",
+      "url": "https://x.com/grok/status/2088319896597975501"
     }
   },
   "version": 1
