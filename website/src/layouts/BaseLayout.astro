@@ -21,7 +21,7 @@ const {
   imageAlt,
 } = Astro.props;
 
-const siteTitle = title === 'Grokati' ? 'Grokati â€” Grok & xAI News' : `${title} | Grokati`;
+const siteTitle = title === 'Grokati' ? 'Grokati - Grok & xAI News' : `${title} | Grokati`;
 const canonicalURL = canonical
   ? new URL(canonical, Astro.site)
   : new URL(Astro.url.pathname, Astro.site);
@@ -31,7 +31,7 @@ const resolvedImage = image || DEFAULT_OG;
 const ogImageURL = resolvedImage.startsWith('http')
   ? resolvedImage
   : new URL(resolvedImage, Astro.site).toString();
-const ogAlt = imageAlt || (image ? title : 'Grokati â€” Grok & xAI News');
+const ogAlt = imageAlt || (image ? title : 'Grokati - Grok & xAI News');
 
 const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN as string | undefined;
 const cloudflareBeacon = import.meta.env.PUBLIC_CF_BEACON_TOKEN as string | undefined;
@@ -98,3 +98,4 @@ const cloudflareBeacon = import.meta.env.PUBLIC_CF_BEACON_TOKEN as string | unde
     <Footer />
   </body>
 </html>
+

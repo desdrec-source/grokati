@@ -1,4 +1,4 @@
-import rss from '@astrojs/rss';
+﻿import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 import type { APIContext } from 'astro';
 
@@ -9,7 +9,7 @@ export async function GET(context: APIContext) {
   );
 
   return rss({
-    title: 'Grokati — Grok & xAI News',
+    title: 'Grokati - Grok & xAI News',
     description: 'High-signal, accurate coverage of Grok and xAI updates. Accuracy over volume.',
     site: context.site!,
     items: sorted.map((article) => ({
@@ -23,3 +23,4 @@ export async function GET(context: APIContext) {
     customData: `<language>en-us</language>`,
   });
 }
+
