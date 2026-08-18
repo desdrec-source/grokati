@@ -12,14 +12,7 @@ hasVideo: true
 
 On 17 August 2026, **Elon Musk** posted on X: “Create with Grok Imagine,” with a link. The post itself did not add feature details, pricing, or new product claims.
 
-The same day, **@grok** posted a related Imagine video and contest thread. Official X embed:
-
-<div class="x-embed">
-  <p class="x-embed-label">Related @grok post</p>
-  <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true">
-    <a href="https://x.com/grok/status/2089443401695470006"></a>
-  </blockquote>
-</div>
+The same day, **@grok** posted a related Imagine video and contest thread, which Elon quoted.
 
 ## What was announced
 
