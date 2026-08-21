@@ -1,4 +1,4 @@
-import { defineCollection, z } from 'astro:content';
+﻿import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
 const articles = defineCollection({
@@ -12,6 +12,7 @@ const articles = defineCollection({
     sourceUrl: z.string().url(),
     author: z.string().default('Grokati'),
     draft: z.boolean().default(false),
+    featured: z.boolean().optional(),
     category: z.enum(['models', 'imagine', 'bot', 'build', 'voice']).default('models'),
     image: z.string().optional(),
     imageAlt: z.string().optional(),
