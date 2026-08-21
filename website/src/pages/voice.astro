@@ -1,26 +1,61 @@
----
+﻿---
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="Voice" description="What Grok Voice is: spoken interaction, voices, and connectors in voice mode.">
+<BaseLayout title="Voice" description="What Grok Voice is: spoken interaction with Grok, multi-platform voices, and connectors in voice mode.">
   <section class="about-content">
     <p class="home-kicker" style="margin-bottom: 0.75rem;">Features</p>
     <h1 class="page-title">Voice</h1>
     <p class="page-subtitle muted">Spoken interaction with Grok across platforms.</p>
-    <p><strong>Voice</strong> is how users speak to Grok instead of only typing. It is an interaction mode on top of the same <a href="/models">models</a>, designed for conversation, hands-free use, and — when connectors are enabled — spoken access to external tools.</p>
+
+    <p>
+      <strong>Voice</strong> is how users speak to Grok instead of only typing. It is an interaction mode on top of the same <a href="/models">models</a>, designed for conversation, hands-free use, and — when connectors are enabled — spoken access to external tools and accounts.
+    </p>
+    <p>
+      Voice matters because it changes how Grok fits into a day: walking, driving, accessibility needs, or any moment when a keyboard is the wrong interface. Official updates have treated Voice as a first-class surface, not a side experiment.
+    </p>
+
     <h2>Platforms and voices</h2>
-    <p>Official announcements have described Voice features across iOS, Android, and web, and have introduced additional voice options on those platforms.</p>
-    <h2>Connectors in voice mode</h2>
-    <p><strong>Connectors</strong> are how Grok reaches external tools and accounts. Official updates have stated that connectors can be used while in voice mode, not only in typed chat.</p>
+    <p>
+      Official @grok announcements have described Voice connector support and voice features across <strong>iOS</strong>, <strong>Android</strong>, and <strong>web</strong>. Separate updates have introduced additional voice options on those same platforms.
+    </p>
+    <p>
+      Those posts are about access and choice: where you can use Voice, and which voices you can pick. They are not full technical specifications of the speech stack.
+    </p>
+
+    <h2>What connectors are</h2>
+    <p>
+      <strong>Connectors</strong> are how Grok reaches external tools and accounts — for example email or calendar — so a session can look things up or take action, not only reply in text or speech.
+    </p>
+    <p>
+      On 5 August 2026, <strong>@grok</strong> stated that connectors are available in Voice Mode:
+    </p>
+    <blockquote>
+      Connectors are now available in Voice Mode. Ask Grok about your emails, check your daily meetings, or use any of your existing connectors, just by talking.
+    </blockquote>
+    <p>
+      That is the official definition Grokati uses. Exact supported services depend on what a user has connected and what xAI has enabled. This page does not list every connector or claim that all of them work the same way.
+    </p>
+    <p>
+      Source: <a href="https://x.com/grok/status/2085083115488260175">@grok on X</a>, 5 August 2026.
+    </p>
+
     <h2>What Voice is for</h2>
     <ul>
       <li>Spoken conversation with Grok on supported apps and the web</li>
       <li>Choosing among available voices</li>
-      <li>Using connectors during voice sessions when enabled</li>
+      <li>Using connectors during voice sessions when that capability is turned on</li>
     </ul>
+
     <h2>Voice vs other products</h2>
-    <p>Voice is a mode of interaction. <a href="/imagine">Imagine</a> is media generation. <a href="/bot">Grok Bot</a> is teammate-style agency. <a href="/build">Grok Build</a> is a coding/agentic harness.</p>
+    <p>
+      Voice is a mode of interaction. <a href="/imagine">Imagine</a> is media generation. <a href="/bot">Grok Bot</a> is teammate-style agency. <a href="/build">Grok Build</a> is a coding/agentic harness. Grokati’s <strong>Voice</strong> category is reserved for announcements that change speech, voices, or voice-mode connectors.
+    </p>
+
     <h2>How Grokati covers Voice</h2>
-    <p>We publish sourced updates when official accounts change platform availability, voice catalogues, or connector-in-voice behaviour.</p>
+    <p>
+      We publish sourced updates when official accounts change platform availability, voice catalogues, or connector-in-voice behaviour. We do not invent latency claims or unsupported integrations.
+    </p>
+
     <p class="muted" style="margin-top: 2rem;"><a href="/features">← All features</a></p>
   </section>
 </BaseLayout>
