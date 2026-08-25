@@ -3,12 +3,21 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 
+/** Archive lists only articles older than this many days. Recent ones stay on the homepage. */
+const ARCHIVE_DAYS = 30;
+
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
-const articles = allArticles.sort(
+const sorted = allArticles.sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-/** Group by year-month for readable archive scanning */
+const cutoff = new Date();
+cutoff.setUTCDate(cutoff.getUTCDate() - ARCHIVE_DAYS);
+cutoff.setUTCHours(0, 0, 0, 0);
+const cutoffMs = cutoff.valueOf();
+
+const articles = sorted.filter((a) => a.data.pubDate.valueOf() < cutoffMs);
+
 function monthKey(d: Date): string {
   return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}`;
 }
@@ -32,18 +41,18 @@ const months = [...byMonth.entries()];
 
 <BaseLayout
   title="Archive"
-  description="Full archive of high-signal Grok and xAI coverage on Grokati. Newest first."
+  description="Archive of Grok and xAI coverage older than 30 days, grouped by month."
 >
   <section class="home-hero">
     <p class="home-kicker">Grok &amp; xAI news</p>
     <h1 class="page-title">Archive</h1>
     <p class="page-subtitle muted">
-      Every published article, newest first. The homepage shows only the last 60 days.
+      Articles older than {ARCHIVE_DAYS} days, grouped by month. Recent updates are on the homepage.
     </p>
   </section>
 
   {articles.length === 0 ? (
-    <p class="muted">No articles yet.</p>
+    <p class="muted">No archived articles yet. Everything published so far is still within the last {ARCHIVE_DAYS} days on the <a href="/">homepage</a>.</p>
   ) : (
     months.map(([key, items]) => (
       <section class="archive-month">

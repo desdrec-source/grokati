@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 
 /** Homepage shows only recent high-signal items. Older pieces live on /archive. */
-const ARCHIVE_DAYS = 60;
+const ARCHIVE_DAYS = 30;
 
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
 const articles = allArticles.sort(
@@ -19,8 +19,9 @@ const cutoffMs = cutoff.valueOf();
 const recent = articles.filter((a) => a.data.pubDate.valueOf() >= cutoffMs);
 const olderCount = articles.length - recent.length;
 
-const featured = recent[0] ?? null;
-const rest = recent.slice(1);
+const pinned = recent.find((a) => a.data.featured === true);
+const featured = pinned ?? recent[0] ?? null;
+const rest = recent.filter((a) => a.id !== featured?.id);
 
 const categoryOrder = ['imagine', 'bot', 'build', 'voice', 'models'] as const;
 const categoryLabels: Record<string, string> = {
@@ -112,4 +113,3 @@ const featuredDate = featured
     </p>
   )}
 </BaseLayout>
-
