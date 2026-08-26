@@ -26,7 +26,7 @@ XAI_MODEL: str = os.getenv("XAI_MODEL", "grok-4-latest")
 
 WATCH_ACCOUNTS: list[str] = [
     a.strip().lstrip("@")
-    for a in os.getenv("WATCH_ACCOUNTS", "grok,xai,cursor_ai,mattyp").split(",")
+    for a in os.getenv("WATCH_ACCOUNTS", "grok,xai,cursor_ai,mattyp,leerob").split(",")
     if a.strip()
 ]
 WATCH_ELON: bool = os.getenv("WATCH_ELON", "true").lower() in ("1", "true", "yes")
@@ -70,3 +70,4 @@ def validate_required() -> list[str]:
     if not XAI_API_KEY:
         missing.append("XAI_API_KEY")
     return missing
+
