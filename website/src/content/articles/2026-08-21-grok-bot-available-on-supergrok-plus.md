@@ -7,7 +7,6 @@ sourceUrl: "https://x.com/bot/status/2090852881373311369"
 author: "Grokati"
 draft: false
 category: "bot"
-featured: true
 hasVideo: true
 ---
 
@@ -43,4 +42,5 @@ No independent check of who actually sees Bot in-account, trial length, or remai
 ## Source
 
 [@bot on X](https://x.com/bot/status/2090852881373311369), 21 August 2026.
+
 

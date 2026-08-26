@@ -8,6 +8,7 @@ author: "Grokati"
 draft: false
 category: "bot"
 hasVideo: true
+featured: true
 ---
 
 On 26 August 2026, the official **@bot** account posted:
