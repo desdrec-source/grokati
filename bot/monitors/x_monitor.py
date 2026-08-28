@@ -2,8 +2,8 @@
 X (Twitter) API v2 monitor for high-signal Grok / xAI posts.
 Uses Bearer Token (app-only) for reading.
 Includes attached media URLs when present.
-Also runs a recent search for Elon + Grok keywords so quote-tweets
-are not lost under a busy timeline.
+Also runs a recent search across the watch list + Grok keywords
+so quote-tweets are not lost under a busy timeline.
 """
 
 from __future__ import annotations
@@ -25,9 +25,11 @@ logger = get_logger("x_monitor")
 
 BASE = "https://api.twitter.com/2"
 
-ELON_SEARCH = (
-    "from:elonmusk (Grok OR xAI OR x.ai OR Imagine OR "
-    '"Grok Bot" OR "Grok Build" OR SuperGrok OR Foundry)'
+WATCH_SEARCH = (
+    "(from:grok OR from:xai OR from:elonmusk OR from:bot OR "
+    "from:mattyp OR from:leerob OR from:Baconbrix OR from:cursor_ai) "
+    "(Grok OR xAI OR x.ai OR Imagine OR \"Grok Bot\" OR \"Grok Build\" "
+    "OR SuperGrok OR Foundry OR Library)"
 )
 
 
@@ -144,12 +146,9 @@ class XMonitor:
         username = (users.get(author_id) or {}).get("username") or "unknown"
         return self._item_from_tweet(tw, username, media_by_key)
 
-    def search_elon_grok(self) -> list[dict[str, Any]]:
-        """Recent search so Elon Grok posts are not lost on a busy timeline."""
-        if not WATCH_ELON:
-            return []
+    def search_watchlist(self) -> list[dict[str, Any]]:
         params = {
-            "query": ELON_SEARCH,
+            "query": WATCH_SEARCH,
             "max_results": 25,
             "tweet.fields": "created_at,public_metrics,referenced_tweets,entities,lang,attachments,author_id",
             "expansions": "attachments.media_keys,author_id",
@@ -157,10 +156,10 @@ class XMonitor:
             "user.fields": "username,name",
         }
         try:
-            logger.info("Searching recent Elon + Grok posts")
+            logger.info("Searching recent watchlist + Grok posts")
             data = self._get("/tweets/search/recent", params=params)
         except Exception as e:
-            logger.exception("Elon Grok search failed: %s", e)
+            logger.exception("Watchlist search failed: %s", e)
             return []
 
         tweets = data.get("data") or []
@@ -172,10 +171,10 @@ class XMonitor:
         results: list[dict[str, Any]] = []
         for tw in tweets:
             author_id = tw.get("author_id")
-            username = (users.get(author_id) or {}).get("username") or "elonmusk"
+            username = (users.get(author_id) or {}).get("username") or "unknown"
             if is_high_signal(tw, author_username=username):
                 results.append(self._item_from_tweet(tw, username, media_by_key))
-        logger.info("  → %d Elon+Grok hits after filter", len(results))
+        logger.info("  → %d watchlist hits after filter", len(results))
         return results
 
     def fetch_high_signal_posts(self) -> list[dict[str, Any]]:
@@ -210,7 +209,7 @@ class XMonitor:
             except Exception as e:
                 logger.exception("Failed to fetch @%s: %s", username, e)
 
-        results.extend(self.search_elon_grok())
+        results.extend(self.search_watchlist())
 
         seen: set[str] = set()
         unique: list[dict[str, Any]] = []
