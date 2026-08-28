@@ -1,7 +1,9 @@
-"""
+﻿"""
 X (Twitter) API v2 monitor for high-signal Grok / xAI posts.
 Uses Bearer Token (app-only) for reading.
 Includes attached media URLs when present.
+Also runs a recent search for Elon + Grok keywords so quote-tweets
+are not lost under a busy timeline.
 """
 
 from __future__ import annotations
@@ -22,6 +24,11 @@ from utils.filters import is_high_signal
 logger = get_logger("x_monitor")
 
 BASE = "https://api.twitter.com/2"
+
+ELON_SEARCH = (
+    "from:elonmusk (Grok OR xAI OR x.ai OR Imagine OR "
+    '"Grok Bot" OR "Grok Build" OR SuperGrok OR Foundry)'
+)
 
 
 class XMonitor:
@@ -98,9 +105,24 @@ class XMonitor:
             )
         return out
 
+    def _item_from_tweet(
+        self, tw: dict, username: str, media_by_key: dict[str, dict]
+    ) -> dict[str, Any]:
+        media = self._extract_media(tw, media_by_key)
+        return {
+            "id": tw["id"],
+            "text": tw.get("text", ""),
+            "created_at": tw.get("created_at"),
+            "author": username,
+            "url": f"https://x.com/{username}/status/{tw['id']}",
+            "media": media,
+            "has_video": any(
+                (m.get("type") or "").lower() in ("video", "animated_gif") for m in media
+            ),
+            "raw": tw,
+        }
 
     def fetch_tweet_by_id(self, tweet_id: str) -> dict[str, Any] | None:
-        """Fetch a single post by ID (bypass timeline window)."""
         tid = str(tweet_id).strip()
         params = {
             "tweet.fields": "created_at,public_metrics,referenced_tweets,entities,lang,attachments,author_id",
@@ -120,21 +142,42 @@ class XMonitor:
         users = {u["id"]: u for u in (includes.get("users") or []) if "id" in u}
         author_id = tw.get("author_id")
         username = (users.get(author_id) or {}).get("username") or "unknown"
+        return self._item_from_tweet(tw, username, media_by_key)
 
-        media = self._extract_media(tw, media_by_key)
-        return {
-            "id": tw["id"],
-            "text": tw.get("text", ""),
-            "created_at": tw.get("created_at"),
-            "author": username,
-            "url": f"https://x.com/{username}/status/{tw['id']}",
-            "media": media,
-            "has_video": any(
-                (m.get("type") or "").lower() in ("video", "animated_gif")
-                for m in media
-            ),
-            "raw": tw,
+    def search_elon_grok(self) -> list[dict[str, Any]]:
+        """Recent search so Elon Grok posts are not lost on a busy timeline."""
+        if not WATCH_ELON:
+            return []
+        params = {
+            "query": ELON_SEARCH,
+            "max_results": 25,
+            "tweet.fields": "created_at,public_metrics,referenced_tweets,entities,lang,attachments,author_id",
+            "expansions": "attachments.media_keys,author_id",
+            "media.fields": "url,preview_image_url,type,alt_text,width,height",
+            "user.fields": "username,name",
         }
+        try:
+            logger.info("Searching recent Elon + Grok posts")
+            data = self._get("/tweets/search/recent", params=params)
+        except Exception as e:
+            logger.exception("Elon Grok search failed: %s", e)
+            return []
+
+        tweets = data.get("data") or []
+        includes = data.get("includes") or {}
+        media_list = includes.get("media") or []
+        media_by_key = {m["media_key"]: m for m in media_list if "media_key" in m}
+        users = {u["id"]: u for u in (includes.get("users") or []) if "id" in u}
+
+        results: list[dict[str, Any]] = []
+        for tw in tweets:
+            author_id = tw.get("author_id")
+            username = (users.get(author_id) or {}).get("username") or "elonmusk"
+            if is_high_signal(tw, author_username=username):
+                results.append(self._item_from_tweet(tw, username, media_by_key))
+        logger.info("  → %d Elon+Grok hits after filter", len(results))
+        return results
+
     def fetch_high_signal_posts(self) -> list[dict[str, Any]]:
         results: list[dict[str, Any]] = []
         accounts = list(WATCH_ACCOUNTS)
@@ -158,23 +201,7 @@ class XMonitor:
 
                 for tw in tweets:
                     if is_high_signal(tw, author_username=username):
-                        media = self._extract_media(tw, media_by_key)
-                        results.append(
-                            {
-                                "id": tw["id"],
-                                "text": tw.get("text", ""),
-                                "created_at": tw.get("created_at"),
-                                "author": username,
-                                "url": f"https://x.com/{username}/status/{tw['id']}",
-                                "media": media,
-                                "has_video": any(
-                                    (m.get("type") or "").lower()
-                                    in ("video", "animated_gif")
-                                    for m in media
-                                ),
-                                "raw": tw,
-                            }
-                        )
+                        results.append(self._item_from_tweet(tw, username, media_by_key))
                     else:
                         logger.debug(
                             "  filtered out: %s…", (tw.get("text") or "")[:60]
@@ -182,6 +209,8 @@ class XMonitor:
 
             except Exception as e:
                 logger.exception("Failed to fetch @%s: %s", username, e)
+
+        results.extend(self.search_elon_grok())
 
         seen: set[str] = set()
         unique: list[dict[str, Any]] = []

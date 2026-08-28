@@ -26,7 +26,7 @@ XAI_MODEL: str = os.getenv("XAI_MODEL", "grok-4-latest")
 
 WATCH_ACCOUNTS: list[str] = [
     a.strip().lstrip("@")
-    for a in os.getenv("WATCH_ACCOUNTS", "grok,xai,cursor_ai,mattyp,leerob").split(",")
+    for a in os.getenv("WATCH_ACCOUNTS"", """grok,xai,cursor_ai,bot,mattyp,leerob,Baconbrix""").split(",")
     if a.strip()
 ]
 WATCH_ELON: bool = os.getenv("WATCH_ELON", "true").lower() in ("1", "true", "yes")
@@ -38,7 +38,7 @@ HIGH_SIGNAL_KEYWORDS: list[str] = [
     ).split(",")
     if k.strip()
 ]
-POSTS_PER_ACCOUNT: int = int(os.getenv("POSTS_PER_ACCOUNT", "10"))
+POSTS_PER_ACCOUNT: int = int(os.getenv("POSTS_PER_ACCOUNT", "50"))
 
 OUTPUT_DIR: Path = BOT_DIR / os.getenv("OUTPUT_DIR", "output")
 ARTICLES_OUT: Path = OUTPUT_DIR / "articles"
@@ -70,4 +70,5 @@ def validate_required() -> list[str]:
     if not XAI_API_KEY:
         missing.append("XAI_API_KEY")
     return missing
+
 
