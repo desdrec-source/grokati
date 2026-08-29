@@ -28,7 +28,7 @@ WATCH_ACCOUNTS: list[str] = [
     a.strip().lstrip("@")
     for a in os.getenv(
         "WATCH_ACCOUNTS",
-        "grok,xai,cursor_ai,bot,mattyp,leerob,Baconbrix",
+        "grok,xai,cursor_ai,bot,mattyp,leerob,Baconbrix,LouiseGiam",
     ).split(",")
     if a.strip()
 ]
@@ -73,3 +73,4 @@ def validate_required() -> list[str]:
     if not XAI_API_KEY:
         missing.append("XAI_API_KEY")
     return missing
+

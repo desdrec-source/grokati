@@ -27,7 +27,7 @@ BASE = "https://api.twitter.com/2"
 
 WATCH_SEARCH = (
     "(from:grok OR from:xai OR from:elonmusk OR from:bot OR "
-    "from:mattyp OR from:leerob OR from:Baconbrix OR from:cursor_ai) "
+    "from:mattyp OR from:leerob OR from:Baconbrix OR from:cursor_ai OR from:LouiseGiam) "
     "(Grok OR xAI OR x.ai OR Imagine OR \"Grok Bot\" OR \"Grok Build\" "
     "OR SuperGrok OR Foundry OR Library)"
 )
@@ -225,3 +225,4 @@ class XMonitor:
             with_media,
         )
         return unique
+
