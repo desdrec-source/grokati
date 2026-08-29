@@ -1,4 +1,4 @@
-﻿name: Grokati bot
+name: Grokati bot
 
 on:
   schedule:
@@ -23,8 +23,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install bot
-        working-directory: bot
-        run: pip install -r requirements.txt
+        run: pip install -r bot/requirements.txt
 
       - name: Run Grokati bot
         working-directory: bot
@@ -35,6 +34,7 @@ jobs:
         run: python main.py
 
       - name: Commit new articles to main
+        if: success()
         run: |
           git config user.name "grokati-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
