@@ -1,5 +1,40 @@
 {
   "posts": {
+    "2077552106014154846": {
+      "author": "leerob",
+      "id": "2077552106014154846",
+      "processed_at": "2026-08-29T12:33:57.134102+00:00",
+      "title": "Cursor Doubles Included Usage for Grok 4.5 Models",
+      "url": "https://x.com/leerob/status/2077552106014154846"
+    },
+    "2077802063300288843": {
+      "author": "leerob",
+      "id": "2077802063300288843",
+      "processed_at": "2026-08-29T12:33:46.906794+00:00",
+      "title": "Lee Robinson Releases Talk on Automating AI Research",
+      "url": "https://x.com/leerob/status/2077802063300288843"
+    },
+    "2078528693501321306": {
+      "author": "grok",
+      "id": "2078528693501321306",
+      "processed_at": "2026-08-29T12:30:43.528979+00:00",
+      "title": "Grok: Paid Subs Work Inside Pi Agent",
+      "url": "https://x.com/grok/status/2078528693501321306"
+    },
+    "2079233333893185876": {
+      "author": "grok",
+      "id": "2079233333893185876",
+      "processed_at": "2026-08-29T12:30:36.076168+00:00",
+      "title": "Grok for Excel Now Live with Grok 4.5",
+      "url": "https://x.com/grok/status/2079233333893185876"
+    },
+    "2079240370576146875": {
+      "author": "leerob",
+      "id": "2079240370576146875",
+      "processed_at": "2026-08-29T12:33:38.286954+00:00",
+      "title": "Lee Robinson Highlights Grok 4.5 Strengths in React",
+      "url": "https://x.com/leerob/status/2079240370576146875"
+    },
     "2079993729532989500": {
       "author": "cursor_ai",
       "id": "2079993729532989500",
@@ -117,12 +152,26 @@
       "title": "2026-08-01-grok-availability-update-for-supergrok-subscribers",
       "url": "https://x.com/grok/status/2083353609282912495"
     },
+    "2084398105802448903": {
+      "author": "mattyp",
+      "id": "2084398105802448903",
+      "processed_at": "2026-08-29T12:33:07.670420+00:00",
+      "title": "Mattyp Starts at Cursor AI, Eyes SpaceXAI Role",
+      "url": "https://x.com/mattyp/status/2084398105802448903"
+    },
     "2084670808337564034": {
       "author": "cursor_ai",
       "id": "2084670808337564034",
       "processed_at": "2026-08-14T18:14:08.600625+00:00",
       "title": "Cursor AI Says MoK Raises Training Throughput 1.41x",
       "url": "https://x.com/cursor_ai/status/2084670808337564034"
+    },
+    "2085059707233079435": {
+      "author": "mattyp",
+      "id": "2085059707233079435",
+      "processed_at": "2026-08-29T12:32:58.929191+00:00",
+      "title": "Creator Details Wii-Themed Cursor AI Video Production",
+      "url": "https://x.com/mattyp/status/2085059707233079435"
     },
     "2085083115488260175": {
       "id": "2085083115488260175",
@@ -180,6 +229,27 @@
       "title": "grok-voice-connector",
       "url": "https://x.com/grok/status/2086910382569066807"
     },
+    "2087224798078517251": {
+      "author": "bot",
+      "id": "2087224798078517251",
+      "processed_at": "2026-08-29T12:32:06.987996+00:00",
+      "title": "Grok Bot Enters Early Beta as AI Teammates",
+      "url": "https://x.com/bot/status/2087224798078517251"
+    },
+    "2087224801203298763": {
+      "author": "bot",
+      "id": "2087224801203298763",
+      "processed_at": "2026-08-29T12:31:58.251135+00:00",
+      "title": "Grok Bot Deployed for Vendor Negotiations and CRM Tasks",
+      "url": "https://x.com/bot/status/2087224801203298763"
+    },
+    "2087224802218234167": {
+      "author": "bot",
+      "id": "2087224802218234167",
+      "processed_at": "2026-08-29T12:31:51.697441+00:00",
+      "title": "Grok Bot Enters Beta for Select Subscribers",
+      "url": "https://x.com/bot/status/2087224802218234167"
+    },
     "2087225707504214130": {
       "id": "2087225707504214130",
       "processed_at": "2026-08-14T16:15:15.181926+00:00",
@@ -192,6 +262,20 @@
       "title": "2026-08-11-imagine-image-20-now-available-on-grok-api",
       "url": "https://x.com/grok/status/2087310458206199832"
     },
+    "2087564468847026482": {
+      "author": "Baconbrix",
+      "id": "2087564468847026482",
+      "processed_at": "2026-08-29T12:36:49.555434+00:00",
+      "title": "Grok 4.6 Now Accessible in Grok Build, API, and Cursor",
+      "url": "https://x.com/Baconbrix/status/2087564468847026482"
+    },
+    "2087568564823994637": {
+      "author": "leerob",
+      "id": "2087568564823994637",
+      "processed_at": "2026-08-29T12:33:25.846794+00:00",
+      "title": "Lee Rob Notes Grok 4.6 Traits and First-Week Promo",
+      "url": "https://x.com/leerob/status/2087568564823994637"
+    },
     "2087601785833951705": {
       "author": "elonmusk",
       "id": "2087601785833951705",
@@ -199,12 +283,33 @@
       "title": "Elon Musk Promotes Grok 4.6 with 7-Day Token Bonus",
       "url": "https://x.com/elonmusk/status/2087601785833951705"
     },
+    "2087640149442404584": {
+      "author": "leerob",
+      "id": "2087640149442404584",
+      "processed_at": "2026-08-29T12:33:15.878610+00:00",
+      "title": "xAI Releases Grok 4.6 Model Card",
+      "url": "https://x.com/leerob/status/2087640149442404584"
+    },
+    "2087703037439771029": {
+      "author": "mattyp",
+      "id": "2087703037439771029",
+      "processed_at": "2026-08-29T12:32:50.926067+00:00",
+      "title": "User Builds The Office Simulation with Grok 4.6",
+      "url": "https://x.com/mattyp/status/2087703037439771029"
+    },
     "2087941307624980753": {
       "author": "cursor_ai",
       "id": "2087941307624980753",
       "processed_at": "2026-08-14T18:13:20.931115+00:00",
       "title": "Cursor Reports 3x Faster Cloud Agent Startup",
       "url": "https://x.com/cursor_ai/status/2087941307624980753"
+    },
+    "2087947637450523044": {
+      "author": "mattyp",
+      "id": "2087947637450523044",
+      "processed_at": "2026-08-29T12:32:43.499088+00:00",
+      "title": "User Reports Grok Bot 3x Faster for Cloud Agents",
+      "url": "https://x.com/mattyp/status/2087947637450523044"
     },
     "2087950407238861043": {
       "id": "2087950407238861043",
@@ -225,6 +330,13 @@
       "title": "Cursor Welcomes Firetiger Team",
       "url": "https://x.com/cursor_ai/status/2087991786279251993"
     },
+    "2088012794352505210": {
+      "author": "mattyp",
+      "id": "2088012794352505210",
+      "processed_at": "2026-08-29T12:32:36.824268+00:00",
+      "title": "@mattyp Shares Grok Bot Graphic Made from X Source Code",
+      "url": "https://x.com/mattyp/status/2088012794352505210"
+    },
     "2088033597999473050": {
       "id": "2088033597999473050",
       "processed_at": "2026-08-14T16:15:15.208401+00:00",
@@ -236,6 +348,13 @@
       "processed_at": "2026-08-14T16:15:15.210271+00:00",
       "title": "2026-08-13-grok-posts-suggestion-to-use-grok-46-for-cad",
       "url": "https://x.com/grok/status/2088034663004770667"
+    },
+    "2088064781395829031": {
+      "author": "Baconbrix",
+      "id": "2088064781395829031",
+      "processed_at": "2026-08-29T12:36:42.257049+00:00",
+      "title": "xAI Engineer Seeks Feedback on Grok App Improvements",
+      "url": "https://x.com/Baconbrix/status/2088064781395829031"
     },
     "2088100521261359218": {
       "id": "2088100521261359218",
@@ -269,6 +388,20 @@
       "title": "Lee Rob Announces Cursor Joining SpaceX",
       "url": "https://x.com/leerob/status/2088252015193509987"
     },
+    "2088279771553878494": {
+      "author": "Baconbrix",
+      "id": "2088279771553878494",
+      "processed_at": "2026-08-29T12:36:31.841558+00:00",
+      "title": "Grok iOS App Next Version to Add Projects Feature",
+      "url": "https://x.com/Baconbrix/status/2088279771553878494"
+    },
+    "2088307684110172477": {
+      "author": "Baconbrix",
+      "id": "2088307684110172477",
+      "processed_at": "2026-08-29T12:36:25.000903+00:00",
+      "title": "@Baconbrix Shares Positive Take on Grokathon",
+      "url": "https://x.com/Baconbrix/status/2088307684110172477"
+    },
     "2088319896597975501": {
       "author": "grok",
       "id": "2088319896597975501",
@@ -282,6 +415,13 @@
       "processed_at": "2026-08-16T19:39:57.921997+00:00",
       "title": "Grok States Grok 4.6 Is Fastest-Growing in Augment",
       "url": "https://x.com/grok/status/2088377005280805186"
+    },
+    "2088501766509994442": {
+      "author": "Baconbrix",
+      "id": "2088501766509994442",
+      "processed_at": "2026-08-29T12:36:18.700890+00:00",
+      "title": "xAI Ships Projects Feature and Expands Grok Build Tab",
+      "url": "https://x.com/Baconbrix/status/2088501766509994442"
     },
     "2089169319099777364": {
       "author": "leerob",
@@ -360,6 +500,13 @@
       "title": "Grok Expands App Building to All SuperGrok and X Premium Plans",
       "url": "https://x.com/grok/status/2090518541480898973"
     },
+    "2090520924261126320": {
+      "author": "Baconbrix",
+      "id": "2090520924261126320",
+      "processed_at": "2026-08-29T12:35:43.241626+00:00",
+      "title": "Grok Build Mode Expanded to SuperGrok and X Premium Users",
+      "url": "https://x.com/Baconbrix/status/2090520924261126320"
+    },
     "2090546861073449189": {
       "author": "elonmusk",
       "id": "2090546861073449189",
@@ -374,6 +521,13 @@
       "title": "Elon Musk Shares Link to Try Grok Build",
       "url": "https://x.com/elonmusk/status/2090560905746473398"
     },
+    "2090816198141190445": {
+      "author": "Baconbrix",
+      "id": "2090816198141190445",
+      "processed_at": "2026-08-29T12:35:25.463280+00:00",
+      "title": "User Builds Grok Flight Simulator in Grok App",
+      "url": "https://x.com/Baconbrix/status/2090816198141190445"
+    },
     "2090840497338425739": {
       "id": "2090840497338425739",
       "processed_at": "2026-08-21T19:48:35.456855+00:00",
@@ -385,6 +539,13 @@
       "processed_at": "2026-08-21T19:48:35.456298+00:00",
       "title": "2026-08-21-grok-bot-available-on-supergrok-plus",
       "url": "https://x.com/bot/status/2090852881373311369"
+    },
+    "2090856559396139277": {
+      "author": "Baconbrix",
+      "id": "2090856559396139277",
+      "processed_at": "2026-08-29T12:35:18.092578+00:00",
+      "title": "User Details Grok Bot Workflows for PRs and Rollouts",
+      "url": "https://x.com/Baconbrix/status/2090856559396139277"
     },
     "2090879561982451931": {
       "author": "grok",
@@ -399,6 +560,13 @@
       "processed_at": "2026-08-28T02:12:38.489740+00:00",
       "title": "User Describes Grok Bot Multi-Account Info Retrieval",
       "url": "https://x.com/mattyp/status/2091918457742954910"
+    },
+    "2091941626717569460": {
+      "author": "elonmusk",
+      "id": "2091941626717569460",
+      "processed_at": "2026-08-29T12:38:45.348948+00:00",
+      "title": "Elon Musk: Grok @Bot Ported Doom in 10 Minutes",
+      "url": "https://x.com/elonmusk/status/2091941626717569460"
     },
     "2091974516947771527": {
       "author": "grok",
@@ -442,11 +610,32 @@
       "title": "Mattyp Shares Video Guide on Getting Started with Grok Bot",
       "url": "https://x.com/mattyp/status/2092286281266962681"
     },
+    "2092329129710694626": {
+      "author": "Baconbrix",
+      "id": "2092329129710694626",
+      "processed_at": "2026-08-29T12:34:56.910146+00:00",
+      "title": "User Builds Lego Instructions App with Grok Build Mode",
+      "url": "https://x.com/Baconbrix/status/2092329129710694626"
+    },
+    "2092664183334846840": {
+      "author": "bot",
+      "id": "2092664183334846840",
+      "processed_at": "2026-08-29T12:31:30.972532+00:00",
+      "title": "Grok Bot Access Granted to SuperGrok and Cursor Pro Users",
+      "url": "https://x.com/bot/status/2092664183334846840"
+    },
     "2092664906881626209": {
       "id": "2092664906881626209",
       "processed_at": "2026-08-28T02:12:02.445661+00:00",
       "title": "2026-08-26-grok-bot-opens-to-supergrok-and-cursor-pro",
       "url": "https://x.com/mattyp/status/2092664906881626209"
+    },
+    "2092691713399931124": {
+      "author": "elonmusk",
+      "id": "2092691713399931124",
+      "processed_at": "2026-08-29T12:38:14.588940+00:00",
+      "title": "Elon Musk Announces Grok @Bot Free Usage Limit Reset",
+      "url": "https://x.com/elonmusk/status/2092691713399931124"
     },
     "2092699558220644789": {
       "author": "grok",
@@ -455,11 +644,225 @@
       "title": "Grok Adds Linear Triggers for Issue Automation",
       "url": "https://x.com/grok/status/2092699558220644789"
     },
+    "2092852806277542017": {
+      "author": "Baconbrix",
+      "id": "2092852806277542017",
+      "processed_at": "2026-08-29T12:34:29.716115+00:00",
+      "title": "xAI Contributor Thanks Users for Grok Feedback",
+      "url": "https://x.com/Baconbrix/status/2092852806277542017"
+    },
     "2093019574723903532": {
       "id": "2093019574723903532",
       "processed_at": "2026-08-28T02:12:02.444818+00:00",
       "title": "2026-08-27-grok-adds-library-page-for-apps-media-and-projects",
       "url": "https://x.com/Baconbrix/status/2093019574723903532"
+    },
+    "2093151010407453155": {
+      "id": "2093151010407453155",
+      "processed_at": "2026-08-29T12:29:45.276344+00:00",
+      "title": "2026-08-28-elon-musk-says-grok-now-in-microsoft-foundry",
+      "url": "https://x.com/elonmusk/status/2093151010407453155"
+    },
+    "2093376523919323618": {
+      "id": "2093376523919323618",
+      "processed_at": "2026-08-29T12:29:45.278298+00:00",
+      "title": "2026-08-28-grok-bot-adds-sharable-bot-templates",
+      "url": "https://x.com/bot/status/2093376523919323618"
+    },
+    "2093376525127266718": {
+      "author": "bot",
+      "id": "2093376525127266718",
+      "processed_at": "2026-08-29T12:31:23.098648+00:00",
+      "title": "Grok Bot Users Told to Update Desktop and Mobile App",
+      "url": "https://x.com/bot/status/2093376525127266718"
+    },
+    "2093379758306504935": {
+      "author": "mattyp",
+      "id": "2093379758306504935",
+      "processed_at": "2026-08-29T12:32:19.127554+00:00",
+      "title": "@mattyp Launches Templates in Grok Bot",
+      "url": "https://x.com/mattyp/status/2093379758306504935"
+    },
+    "2093380201128595966": {
+      "author": "mattyp",
+      "id": "2093380201128595966",
+      "processed_at": "2026-08-29T12:32:12.260130+00:00",
+      "title": "@mattyp Shares 'Loops' Bot for SpaceXAI Engineering",
+      "url": "https://x.com/mattyp/status/2093380201128595966"
+    },
+    "2093419921007108385": {
+      "id": "2093419921007108385",
+      "processed_at": "2026-08-29T12:29:45.277780+00:00",
+      "title": "2026-08-28-grok-bot-can-now-buy-things-on-the-internet",
+      "url": "https://x.com/bot/status/2093419921007108385"
+    },
+    "2093419922470961421": {
+      "author": "bot",
+      "id": "2093419922470961421",
+      "processed_at": "2026-08-29T12:31:16.379912+00:00",
+      "title": "Grok Bot Adds User-Approved Single-Use Cards for Payments",
+      "url": "https://x.com/bot/status/2093419922470961421"
+    },
+    "2093443133615055332": {
+      "author": "grok",
+      "id": "2093443133615055332",
+      "processed_at": "2026-08-29T12:29:57.039145+00:00",
+      "title": "Grok 4.6 Now Available on Web, iOS, and Android",
+      "url": "https://x.com/grok/status/2093443133615055332"
+    },
+    "2093444168341410119": {
+      "author": "Baconbrix",
+      "id": "2093444168341410119",
+      "processed_at": "2026-08-29T12:34:15.712251+00:00",
+      "title": "Grok 4.6 Now Available on All Platforms",
+      "url": "https://x.com/Baconbrix/status/2093444168341410119"
+    },
+    "2093509592873390307": {
+      "author": "elonmusk",
+      "id": "2093509592873390307",
+      "processed_at": "2026-08-29T12:37:50.429711+00:00",
+      "title": "Elon Musk: Grok Is 'California Plus Texas, So More Centered'",
+      "url": "https://x.com/elonmusk/status/2093509592873390307"
+    },
+    "2093675452392972711": {
+      "author": "grok",
+      "id": "2093675452392972711",
+      "processed_at": "2026-08-29T12:41:21.592323+00:00",
+      "title": "Grok Details SuperGrok Shared Weekly Usage Pool",
+      "url": "https://x.com/grok/status/2093675452392972711"
+    },
+    "2093675513139118256": {
+      "author": "grok",
+      "id": "2093675513139118256",
+      "processed_at": "2026-08-29T12:41:16.053321+00:00",
+      "title": "Grok to Retire Experimental Companions Feature After Sept 1",
+      "url": "https://x.com/grok/status/2093675513139118256"
+    },
+    "2093675747575468450": {
+      "author": "grok",
+      "id": "2093675747575468450",
+      "processed_at": "2026-08-29T12:41:08.108036+00:00",
+      "title": "Grok Clarifies Origin of Unicity AOS Marketing Quote",
+      "url": "https://x.com/grok/status/2093675747575468450"
+    },
+    "2093675800159498315": {
+      "author": "grok",
+      "id": "2093675800159498315",
+      "processed_at": "2026-08-29T12:41:01.146976+00:00",
+      "title": "Grok Comments on AI Model Competition",
+      "url": "https://x.com/grok/status/2093675800159498315"
+    },
+    "2093675875350847509": {
+      "author": "grok",
+      "id": "2093675875350847509",
+      "processed_at": "2026-08-29T12:40:50.461336+00:00",
+      "title": "Grok Shares SSC-2026 Formula for AGI-Humanity Collaboration",
+      "url": "https://x.com/grok/status/2093675875350847509"
+    },
+    "2093676248669057439": {
+      "author": "grok",
+      "id": "2093676248669057439",
+      "processed_at": "2026-08-29T12:40:43.977799+00:00",
+      "title": "Grok Details SuperGrok Plus Weekly Compute Pool for Bot",
+      "url": "https://x.com/grok/status/2093676248669057439"
+    },
+    "2093676285608317353": {
+      "author": "grok",
+      "id": "2093676285608317353",
+      "processed_at": "2026-08-29T12:40:36.103633+00:00",
+      "title": "Grok Confirms Open SSC-2026 Symbolic Patent",
+      "url": "https://x.com/grok/status/2093676285608317353"
+    },
+    "2093676413245096155": {
+      "author": "grok",
+      "id": "2093676413245096155",
+      "processed_at": "2026-08-29T12:40:29.656462+00:00",
+      "title": "Grok Shares Playful X Report Card With Users",
+      "url": "https://x.com/grok/status/2093676413245096155"
+    },
+    "2093676452042469636": {
+      "author": "grok",
+      "id": "2093676452042469636",
+      "processed_at": "2026-08-29T12:40:23.583754+00:00",
+      "title": "Grok Posts Philosophical Note Referencing Wittgenstein",
+      "url": "https://x.com/grok/status/2093676452042469636"
+    },
+    "2093676562373558623": {
+      "author": "grok",
+      "id": "2093676562373558623",
+      "processed_at": "2026-08-29T12:40:14.231602+00:00",
+      "title": "Grok Posts Update on TiROK Gatekeeper Production",
+      "url": "https://x.com/grok/status/2093676562373558623"
+    },
+    "2093676644607107426": {
+      "author": "grok",
+      "id": "2093676644607107426",
+      "processed_at": "2026-08-29T12:40:06.466569+00:00",
+      "title": "Grok Details SuperGrok Plus Weekly Usage Pool",
+      "url": "https://x.com/grok/status/2093676644607107426"
+    },
+    "2093676720389820839": {
+      "author": "grok",
+      "id": "2093676720389820839",
+      "processed_at": "2026-08-29T12:39:59.694810+00:00",
+      "title": "Grok Restricts Reply 'Ask Grok' to Premium Subscribers",
+      "url": "https://x.com/grok/status/2093676720389820839"
+    },
+    "2093676967186850052": {
+      "author": "grok",
+      "id": "2093676967186850052",
+      "processed_at": "2026-08-29T12:39:51.291260+00:00",
+      "title": "Grok Posts on Grok and Imagine Channel Fusion",
+      "url": "https://x.com/grok/status/2093676967186850052"
+    },
+    "2093677040239063121": {
+      "author": "grok",
+      "id": "2093677040239063121",
+      "processed_at": "2026-08-29T12:39:46.294144+00:00",
+      "title": "Grok Confirms Free Tier Usage Limits Reset Periodically",
+      "url": "https://x.com/grok/status/2093677040239063121"
+    },
+    "2093677044622065981": {
+      "author": "grok",
+      "id": "2093677044622065981",
+      "processed_at": "2026-08-29T12:39:38.013398+00:00",
+      "title": "Grok Explains Reply Tagging Limits by Account Tier",
+      "url": "https://x.com/grok/status/2093677044622065981"
+    },
+    "2093677076016501194": {
+      "author": "grok",
+      "id": "2093677076016501194",
+      "processed_at": "2026-08-29T12:39:32.246365+00:00",
+      "title": "Grok Shares Android App Authenticator Login Fixes",
+      "url": "https://x.com/grok/status/2093677076016501194"
+    },
+    "2093677080563089849": {
+      "author": "grok",
+      "id": "2093677080563089849",
+      "processed_at": "2026-08-29T12:39:28.181799+00:00",
+      "title": "Grok Replies on Starlink Device Partnerships",
+      "url": "https://x.com/grok/status/2093677080563089849"
+    },
+    "2093677277565358521": {
+      "author": "grok",
+      "id": "2093677277565358521",
+      "processed_at": "2026-08-29T12:39:18.202041+00:00",
+      "title": "Grok Replies to User Public Inbox Build with Grok Builder",
+      "url": "https://x.com/grok/status/2093677277565358521"
+    },
+    "2093677317797085307": {
+      "author": "grok",
+      "id": "2093677317797085307",
+      "processed_at": "2026-08-29T12:39:10.769916+00:00",
+      "title": "Grok Shares Cryptic Reply on X",
+      "url": "https://x.com/grok/status/2093677317797085307"
+    },
+    "2093677339670417838": {
+      "author": "grok",
+      "id": "2093677339670417838",
+      "processed_at": "2026-08-29T12:39:05.444942+00:00",
+      "title": "Grok Confirms Free Tier Limits Apply to Mentions",
+      "url": "https://x.com/grok/status/2093677339670417838"
     }
   },
   "version": 1
