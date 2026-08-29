@@ -8,7 +8,6 @@ author: "Grokati"
 draft: false
 category: "bot"
 hasVideo: true
-featured: true
 ---
 
 On 26 August 2026, the official **@bot** account posted:
@@ -51,3 +50,4 @@ No independent check of plan mapping, reset size, or how long the new limits las
 Official announcement: [@bot on X](https://x.com/bot/status/2092664183334846840), 26 August 2026.
 
 Video: [@mattyp on X](https://x.com/mattyp/status/2092664906881626209), 26 August 2026.
+
