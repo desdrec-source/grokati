@@ -41,7 +41,7 @@ HIGH_SIGNAL_KEYWORDS: list[str] = [
     ).split(",")
     if k.strip()
 ]
-POSTS_PER_ACCOUNT: int = int(os.getenv("POSTS_PER_ACCOUNT", "50"))
+POSTS_PER_ACCOUNT: int = int(os.getenv("POSTS_PER_ACCOUNT", "10"))
 
 OUTPUT_DIR: Path = BOT_DIR / os.getenv("OUTPUT_DIR", "output")
 ARTICLES_OUT: Path = OUTPUT_DIR / "articles"
@@ -73,4 +73,5 @@ def validate_required() -> list[str]:
     if not XAI_API_KEY:
         missing.append("XAI_API_KEY")
     return missing
+
 

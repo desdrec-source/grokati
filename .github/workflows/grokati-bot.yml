@@ -1,8 +1,6 @@
-name: Grokati bot
+﻿name: Grokati bot
 
 on:
-  schedule:
-    - cron: "0 6,12,18,0 * * *"
   workflow_dispatch:
 
 permissions:
@@ -31,6 +29,7 @@ jobs:
           X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
           XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
           LIVE_MODE: "true"
+          POSTS_PER_ACCOUNT: "10"
         run: python main.py
 
       - name: Commit new articles to main
