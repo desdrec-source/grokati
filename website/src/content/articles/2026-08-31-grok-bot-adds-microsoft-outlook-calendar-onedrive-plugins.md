@@ -8,6 +8,8 @@ author: "Grokati"
 draft: false
 category: "bot"
 featured: true
+image: "/images/articles/2026-08-31-grok-bot-microsoft-plugins.jpg"
+imageAlt: "Grok Bot announcement graphic for Microsoft Outlook, Calendar, and OneDrive plugins"
 ---
 
 On 31 August 2026, the official **@bot** account posted:
