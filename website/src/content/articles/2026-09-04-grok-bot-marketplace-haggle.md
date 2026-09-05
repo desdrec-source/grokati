@@ -8,11 +8,23 @@ author: "Grokati"
 draft: false
 category: "bot"
 hasVideo: false
+image: "https://media.x.ai/cdn-cgi/image/fit=scale-down,onerror=redirect,width=1280,f=auto/v1/website/haggle-bot-image1-75f1097a.png"
+imageAlt: "Official xAI screenshot of Haggle Bot reviewing a contract renewal"
 ---
 
 SpaceXAI published a detailed account of running Grok Bot on internal procurement and simultaneously opened a public marketplace of Bot templates, starting with the same Haggle Bot used in-house.
 
 > You can now add Bot templates from our marketplace. We’re sharing Haggle Bot, our in-house procurement specialist. It negotiates vendor contracts, finds unused SaaS seats, and price-checks recurring purchases. One week in, it's saved us over $100K.
+
+The official case study includes product screenshots of the Bot reviewing a contract renewal, comparing vendor options, setting a recurring Amazon order, and drafting a supplier email.
+
+![Haggle Bot reviewing a contract renewal proposal](https://media.x.ai/cdn-cgi/image/fit=scale-down,onerror=redirect,width=1280,f=auto/v1/website/haggle-bot-image1-75f1097a.png)
+
+![Haggle Bot comparing Webex, Zoom and other meeting vendors](https://media.x.ai/cdn-cgi/image/fit=scale-down,onerror=redirect,width=1280,f=auto/v1/website/haggle-bot-image2-7f0e2a56.png)
+
+![Amazon Bot setting a weekly new-hire tech order from Slack](https://media.x.ai/cdn-cgi/image/fit=scale-down,onerror=redirect,width=1280,f=auto/v1/website/haggle-bot-image3-b5f9709c.png)
+
+![Haggle Bot drafting an Amazon Business price-match email](https://media.x.ai/cdn-cgi/image/fit=scale-down,onerror=redirect,width=1280,f=auto/v1/website/haggle-bot-image6-f62bac1c.png)
 
 ## What was announced
 
@@ -32,7 +44,7 @@ Grok Bot lets users create specialised AI teammates that operate inside the same
 
 ## Limits of this report
 
-Figures and workflow details are taken solely from the official x.ai case study and the accompanying @bot posts. Independent verification of the dollar savings, exact tool permissions, or performance outside SpaceXAI’s environment is not included. Availability of the marketplace features by plan is not stated in the source material.
+Figures and workflow details are taken solely from the official x.ai case study and the accompanying @bot posts. Independent verification of the dollar savings, exact tool permissions, or performance outside SpaceXAI’s environment is not included. Availability of the marketplace features by plan is not stated in the source material. Screenshots are the official images published on the x.ai news page.
 
 ## Source
 
