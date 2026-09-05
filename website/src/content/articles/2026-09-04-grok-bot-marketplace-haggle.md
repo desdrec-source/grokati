@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Grok Bot marketplace launches with Haggle Bot procurement template"
 description: "A public marketplace of Grok Bot templates is now live. SpaceXAI shared its internal Haggle Bot, which identified more than $100,000 in procurement savings."
 pubDate: 2026-09-04
@@ -22,7 +22,7 @@ SpaceXAI published a detailed account of running Grok Bot on internal procuremen
 - Documented internal results include:
   - 43 unused SaaS seats on one product ($14,220).
   - $85,662 annual unused SKUs on another month-to-month product.
-  - A 58 % reduction on a $14,629 weekly tech/office-supplies order (down to $6,143) after shopping across Amazon, Costco, Uline and Walmart and negotiating with the Amazon business account.
+  - A 58% reduction on a $14,629 weekly tech/office-supplies order (down to $6,143) after shopping across Amazon, Costco, Uline and Walmart and negotiating with the Amazon business account.
 - The Bot was given access to Slack, Notion, Drive, Gmail, Hex and Ramp, mapped ~125 active vendors, and required human approval before spending money, accepting terms or contacting vendors.
 - Additional templates from SpaceXAI and users will be added over time.
 
@@ -36,6 +36,8 @@ Figures and workflow details are taken solely from the official x.ai case study 
 
 ## Source
 
-Official case study: [Setting Grok Bot loose on procurement](https://x.ai/news/grok-bot-procurement) (4 Sep 2026)  
-@bot announcement thread: https://x.com/bot/status/2095954887205138597  
+Official case study: [Setting Grok Bot loose on procurement](https://x.ai/news/grok-bot-procurement) (4 Sep 2026)
+
+@bot announcement thread: https://x.com/bot/status/2095954887205138597
+
 Marketplace: https://x.ai/bot/marketplace
