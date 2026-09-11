@@ -1,27 +1,28 @@
 ---
-title: "Grok Resets Limits for Grok 4.6 Launch"
-description: "Official Grok account states limits were reset during the Grok 4.6 launch, with reset tokens available in app settings."
+title: "Grok 4.6 launch: usage limits reset"
+description: "On 13 August 2026, @grok said limits were reset for the Grok 4.6 launch. Reset tokens are in Grok settings on desktop or mobile."
 pubDate: 2026-08-13
 source: "@grok on X"
 sourceUrl: "https://x.com/grok/status/2087959772909949375"
 author: "Grokati"
 draft: false
+category: "models"
 ---
 
-On August 13, 2026, the official @grok account posted that limits had been reset to support user activity during the Grok 4.6 launch.
+On 13 August 2026, **@grok** said usage limits were reset during the Grok 4.6 launch.
 
 > We've reset limits to help you keep building during the Grok 4.6 launch.
 > Use a reset token from settings in Grok on desktop or mobile.
 
 ## What was announced
-- Limits were reset to allow continued building during the Grok 4.6 launch.
-- Users can obtain a reset token from the settings section in the Grok app on desktop or mobile.
 
-## Context
-Grok is xAI's conversational AI model. Grok 4.6 refers to a version of the model.
+- Limits were reset for the Grok 4.6 launch
+- A reset token is available in Grok settings on desktop or mobile
 
 ## Limits of this report
-This report states only the details in the source post and does not specify what limits were reset, the nature of user building activity, or any other features or timelines.
+
+The post did not name which quota, the new cap, or how long the reset lasts.
 
 ## Source
-Post by @grok on X, August 13, 2026: https://x.com/grok/status/2087959772909949375
+
+[@grok on X](https://x.com/grok/status/2087959772909949375), 13 August 2026.

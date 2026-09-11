@@ -1,4 +1,4 @@
-﻿---
+---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleCard from '../components/ArticleCard.astro';
@@ -52,12 +52,15 @@ const featuredDate = featured
   : '';
 ---
 
-<BaseLayout title="Grokati" description="High-signal, accurate news about Grok and xAI. Accuracy over volume.">
+<BaseLayout
+  title="Grokati"
+  description="Dated Grok and xAI posts, sourced from official accounts and x.ai. Short briefs only. No invented details."
+>
   <section class="home-hero">
     <p class="home-kicker">Grok &amp; xAI news</p>
     <h1 class="page-title">Latest updates</h1>
     <p class="page-subtitle muted">
-      Focused coverage of official announcements and high-signal developments.
+      Official announcements only. Each article names the source and the date.
     </p>
   </section>
 
