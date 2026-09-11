@@ -1,4 +1,4 @@
-﻿import { defineCollection, z } from 'astro:content';
+import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
 const articles = defineCollection({
@@ -17,6 +17,7 @@ const articles = defineCollection({
     image: z.string().optional(),
     imageAlt: z.string().optional(),
     hasVideo: z.boolean().default(false),
+    videoUrl: z.string().url().optional(),
   }),
 });
 
