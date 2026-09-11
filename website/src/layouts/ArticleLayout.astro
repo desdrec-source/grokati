@@ -17,7 +17,6 @@ const {
   image,
   imageAlt,
   hasVideo = false,
-  videoUrl,
 } = article.data;
 
 const formattedDate = pubDate.toLocaleDateString('en-US', {
@@ -31,6 +30,10 @@ const imageUrl = image
   ? image.startsWith('http')
     ? image
     : new URL(image, Astro.site).toString()
+  : undefined;
+const tweetId = sourceUrl.match(/status\/(\d+)/)?.[1];
+const embedSrc = tweetId
+  ? `https://platform.twitter.com/embed/Tweet.html?id=${tweetId}&theme=dark&dnt=true`
   : undefined;
 
 const jsonLd = {
@@ -77,34 +80,26 @@ const jsonLd = {
       </div>
     </header>
 
-    {image && !hasVideo && !videoUrl && (
+    {image && !hasVideo && (
       <figure class="article-hero">
         <img src={image} alt={imageAlt || title} width="1200" height="630" loading="eager" decoding="async" />
       </figure>
     )}
 
-    {videoUrl && (
-      <figure class="article-hero">
-        <video controls playsinline preload="metadata" width="1200">
-          <source src={videoUrl} type="video/mp4" />
-        </video>
-        <figcaption>
-          Official product video from the source post.
-          <a href={sourceUrl} target="_blank" rel="noopener noreferrer">Open on X</a>
-        </figcaption>
-      </figure>
-    )}
-
-    {hasVideo && !videoUrl && (
+    {hasVideo && embedSrc && (
       <div class="x-embed">
         <p class="x-embed-label">Source post</p>
-        <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true">
-          <a href={sourceUrl}></a>
-        </blockquote>
-        <script is:inline async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <iframe
+          class="x-embed-frame"
+          title="Source post on X"
+          src={embedSrc}
+          loading="lazy"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
         <p class="x-embed-fallback">
-          <a href={sourceUrl} target="_blank" rel="noopener noreferrer">Open on X</a>
-          if the embed does not load.
+          <a href={sourceUrl} target="_blank" rel="noopener noreferrer">Open the video on X</a>
+          if the player does not load.
         </p>
       </div>
     )}
