@@ -8,13 +8,14 @@ author: "Grokati"
 draft: false
 category: "bot"
 hasVideo: true
+videoUrl: "https://video.twimg.com/amplify_video/2097383462433087488/vid/avc1/1920x1080/uerUnIsB4cM3a41h.mp4"
 ---
 
 On 8 September 2026, the official **@bot** account posted:
 
 > You can now fill out forms and logins for your Bot without ever leaving the chat, with support for any password manager.
 
-The post included a product video (embedded above). A follow-up linked to [x.ai/bot](https://x.ai/bot).
+The official product video from that post is above. A follow-up linked to [x.ai/bot](https://x.ai/bot).
 
 ## What was announced
 
