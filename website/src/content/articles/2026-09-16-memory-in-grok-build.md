@@ -7,6 +7,7 @@ sourceUrl: "https://x.ai/news/grok-build-memory"
 author: "Grokati"
 draft: false
 category: "build"
+featured: true
 hasVideo: false
 ---
 

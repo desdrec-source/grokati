@@ -7,7 +7,7 @@ sourceUrl: "https://x.com/bot/status/2098183353665261979"
 author: "Grokati"
 draft: false
 category: "bot"
-featured: true
+featured: false
 image: "https://pbs.twimg.com/media/HR4-QySbcAAgKrc.jpg"
 imageAlt: "Grok Bot announcement graphic for sales and GTM tool connections"
 ---
