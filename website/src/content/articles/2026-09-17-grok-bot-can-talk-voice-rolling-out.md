@@ -6,7 +6,7 @@ source: "@bot on X"
 sourceUrl: "https://x.com/bot/status/2100659463569170779"
 author: "Grokati"
 draft: false
-featured: true
+featured: false
 category: "voice"
 hasVideo: true
 ---
