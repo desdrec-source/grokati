@@ -1,4 +1,4 @@
-﻿"""
+"""
 Grokati bot configuration.
 Loads from environment variables (see .env.example).
 """
@@ -28,7 +28,7 @@ WATCH_ACCOUNTS: list[str] = [
     a.strip().lstrip("@")
     for a in os.getenv(
         "WATCH_ACCOUNTS",
-        "grok,xai,cursor_ai,bot,mattyp,leerob,Baconbrix,LouiseGiam",
+        "grok,xai,cursor_ai,bot,mattyp,leerob,Baconbrix,LouiseGiam,imagine",
     ).split(",")
     if a.strip()
 ]
@@ -37,7 +37,7 @@ HIGH_SIGNAL_KEYWORDS: list[str] = [
     k.strip()
     for k in os.getenv(
         "HIGH_SIGNAL_KEYWORDS",
-        "Grok 4,Grok-4,Grok 4.,Grok,model release,API update,announcement,Grok Bot,Grok Build,Grok API,xAI",
+        "Grok 4,Grok-4,Grok 4.,Grok,model release,API update,announcement,Grok Bot,Grok Build,Grok API,Grok Imagine,Imagine,xAI",
     ).split(",")
     if k.strip()
 ]
@@ -73,5 +73,3 @@ def validate_required() -> list[str]:
     if not XAI_API_KEY:
         missing.append("XAI_API_KEY")
     return missing
-
-

@@ -37,6 +37,8 @@ def contains_high_signal_keyword(text: str) -> bool:
         return True
     if re.search(r"\bxai\b", text_lower) or "x.ai" in text_lower:
         return True
+    if re.search(r"\bimagine\b", text_lower):
+        return True
     return False
 
 
@@ -72,7 +74,8 @@ def is_high_signal(
     if not has_enough_substance(text):
         return False
 
-    if username in ("grok", "xai"):
+    # Official product accounts: keep announcements and longer product posts
+    if username in ("grok", "xai", "imagine", "bot"):
         return has_keyword or has_announcement or len(text) >= 80
 
     if username in ("elonmusk", "elon"):
