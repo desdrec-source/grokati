@@ -6,6 +6,7 @@ source: "@elonmusk on X"
 sourceUrl: "https://x.com/elonmusk/status/2107724314451878104"
 author: "Grokati"
 draft: false
+featured: true
 category: "bot"
 ---
 

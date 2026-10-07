@@ -6,7 +6,6 @@ source: "x.ai/news and @SpaceXAI on X"
 sourceUrl: "https://x.ai/news/grok-4-7"
 author: "Grokati"
 draft: false
-featured: true
 category: "models"
 image: "https://pbs.twimg.com/media/HSwLcNqXIAAwNtz.png"
 imageAlt: "Grok 4.7 announcement graphic from @SpaceXAI"
