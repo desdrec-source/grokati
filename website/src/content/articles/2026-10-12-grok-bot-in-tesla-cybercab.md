@@ -1,12 +1,12 @@
 ---
-title: Grok Bot available in Tesla Cybercab robotaxi rides
-description: Official Robotaxi and Elon posts confirm Grok Bot is usable by voice during Cybercab rides, with sign-in once and logout on exit.
+title: "Grok Bot available in Tesla Cybercab robotaxi rides"
+description: "Official Robotaxi and Elon posts confirm Grok Bot is usable by voice during Cybercab rides, with sign-in once and logout on exit."
 pubDate: 2026-10-12
-source: @robotaxi and @elonmusk on X
-sourceUrl: https://x.com/elonmusk/status/2109507243007979558
-author: Grokati
+source: "@robotaxi and @elonmusk on X"
+sourceUrl: "https://x.com/elonmusk/status/2109507243007979558"
+author: "Grokati"
 draft: false
-category: bot
+category: "bot"
 hasVideo: false
 ---
 
