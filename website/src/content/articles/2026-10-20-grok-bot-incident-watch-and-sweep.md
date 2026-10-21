@@ -1,12 +1,12 @@
 ---
-title: SpaceXAI uses Grok Bot teammates to detect and clear support incidents
-description: Official post describes IncidentWatch spotting ticket spikes and IncidentSweep clearing approved batches, with a September example of 204 tickets in about 10 minutes.
+title: "SpaceXAI uses Grok Bot teammates to detect and clear support incidents"
+description: "Official post describes IncidentWatch spotting ticket spikes and IncidentSweep clearing approved batches, with a September example of 204 tickets in about 10 minutes."
 pubDate: 2026-10-20
-source: x.ai news
-sourceUrl: https://x.ai/news/incident-sweep
-author: Grokati
+source: "x.ai news"
+sourceUrl: "https://x.ai/news/incident-sweep"
+author: "Grokati"
 draft: false
-category: bot
+category: "bot"
 hasVideo: false
 ---
 
