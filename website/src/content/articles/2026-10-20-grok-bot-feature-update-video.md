@@ -1,12 +1,12 @@
 ---
-title: Matt Palmer posts What's new in Grok Bot video; Elon calls it a big update
-description: Staff video from @mattyp lists new chat cards, speed, draft edits, email aliases, X DMs, tagging @bot, connectors, voice calls, notifications, invites, Android Assistant, access lists, unread, routines and sign-in. Elon Musk quoted it as a big Grok Bot update.
+title: "Matt Palmer posts What's new in Grok Bot video; Elon calls it a big update"
+description: "Staff video from @mattyp lists new chat cards, speed, draft edits, email aliases, X DMs, tagging @bot, connectors, voice calls, notifications, invites, Android Assistant, access lists, unread, routines and sign-in. Elon Musk quoted it as a big Grok Bot update."
 pubDate: 2026-10-20
-source: @mattyp and @elonmusk on X
-sourceUrl: https://x.com/mattyp/status/2112550158885917122
-author: Grokati
+source: "@mattyp and @elonmusk on X"
+sourceUrl: "https://x.com/mattyp/status/2112550158885917122"
+author: "Grokati"
 draft: false
-category: bot
+category: "bot"
 hasVideo: true
 ---
 
