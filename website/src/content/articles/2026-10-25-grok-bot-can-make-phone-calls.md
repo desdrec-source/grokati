@@ -1,12 +1,12 @@
 ---
-title: Grok Bot can now make phone calls
-description: Elon Musk stated that Grok Bot can call someone or a business, make a request on your behalf, take notes, and send a summarizing note.
+title: "Grok Bot can now make phone calls"
+description: "Elon Musk stated that Grok Bot can call someone or a business, make a request on your behalf, take notes, and send a summarizing note."
 pubDate: 2026-10-25
-source: @elonmusk on X
-sourceUrl: https://x.com/elonmusk/status/2114365361068138990
-author: Grokati
+source: "@elonmusk on X"
+sourceUrl: "https://x.com/elonmusk/status/2114365361068138990"
+author: "Grokati"
 draft: false
-category: bot
+category: "bot"
 ---
 
 On 25 October 2026, Elon Musk posted on X that Grok Bot can now place phone calls.
