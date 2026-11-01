@@ -1,12 +1,12 @@
 ---
-title: Matt Palmer posts What’s New in Grok Bot covering Pages, Vault, Apple integrations, and video
-description: Staff video lists recent Grok Bot features including Pages, Vault, 1Password, Apple integrations, video creation, new characters, X Spaces, and design polish. Elon Musk called out the new features.
+title: "Matt Palmer posts What’s New in Grok Bot covering Pages, Vault, Apple integrations, and video"
+description: "Staff video lists recent Grok Bot features including Pages, Vault, 1Password, Apple integrations, video creation, new characters, X Spaces, and design polish. Elon Musk called out the new features."
 pubDate: 2026-10-27
-source: @mattyp on X
-sourceUrl: https://x.com/mattyp/status/2115111897397628974
-author: Grokati
+source: "@mattyp on X"
+sourceUrl: "https://x.com/mattyp/status/2115111897397628974"
+author: "Grokati"
 draft: false
-category: bot
+category: "bot"
 hasVideo: true
 ---
 
