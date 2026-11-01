@@ -1,12 +1,12 @@
 ---
-title: Elon Musk says Grok 4.8 will not be a disappointment
-description: On 30 October 2026, Elon Musk stated that Grok 4.8 has taken longer than expected but will not disappoint and will be incredibly useful, noting the team is not optimizing for benchmarks.
+title: "Elon Musk says Grok 4.8 will not be a disappointment"
+description: "On 30 October 2026, Elon Musk stated that Grok 4.8 has taken longer than expected but will not disappoint and will be incredibly useful, noting the team is not optimizing for benchmarks."
 pubDate: 2026-10-30
-source: @elonmusk on X
-sourceUrl: https://x.com/elonmusk/status/2116036703538606301
-author: Grokati
+source: "@elonmusk on X"
+sourceUrl: "https://x.com/elonmusk/status/2116036703538606301"
+author: "Grokati"
 draft: false
-category: models
+category: "models"
 ---
 
 On 30 October 2026, Elon Musk posted on X:
