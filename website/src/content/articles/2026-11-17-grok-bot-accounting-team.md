@@ -2,7 +2,7 @@
 title: Five Grok Bots now run SpaceXSI accounting processes end to end
 description: Official @bot post and x.ai news page describe five Team Bots handling provisioning, billing, cash applications, and collections at SpaceXSI.
 pubDate: 2026-11-17
-source: @bot on X and x.ai/news
+source: "@bot on X and x.ai/news"
 sourceUrl: https://x.com/bot/status/2122771386456551516
 author: Grokati
 draft: false
